@@ -1,1 +1,1 @@
-# DB_Script
+AWS Aurora(mysql) Management tool
