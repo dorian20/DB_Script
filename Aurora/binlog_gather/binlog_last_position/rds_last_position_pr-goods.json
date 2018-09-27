@@ -1,0 +1,6 @@
+{
+    "Cluster": "pr-goods", 
+    "Binlogfile": "mysql-bin-changelog.000003", 
+    "LastPosition": 294027, 
+    "CheckPosition": 294027
+}

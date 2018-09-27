@@ -1,0 +1,213 @@
+다시 입력은 AGAIN_
+터널링포트: 52148,52150
+[('elltprdev', 'cc_intrst_mbr_dtl_out'), ('elltprdev', 'dp_dshop_dgoods_out'), ('elltprdev', 'dp_dshop_out'), ('ltcmatdev', 'dp_scat_out'), ('elltlodev', 'et_entprz_hldy_out'), ('elltsedev', 'et_entprz_out'), ('elltdpdev', 'et_entshp_out'), ('elltomdev', 'et_entshp_out'), ('elltprdev', 'et_entshp_out'), ('elltsedev', 'et_entshp_out'), ('elltomdev', 'et_entshp_owh_wtgval_out'), ('elltdpdev', 'et_sup_entprz_out'), ('elltprdev', 'et_sup_entprz_out'), ('elltomdev', 'et_sup_entprz_owh_wtgval_out'), ('elltomdev', 'et_sup_entprz_prior_owh_out'), ('elltdpdev', 'gd_brnd_conts_out'), ('elltcmdev', 'gd_brnd_out'), ('elltdpdev', 'gd_brnd_out'), ('elltprdev', 'gd_brnd_out'), ('elltdpdev', 'gd_goods_out'), ('elltprdev', 'gd_goods_out'), ('ltcmatdev', 'gd_goods_out'), ('elltdpdev', 'gd_goods_prc_out'), ('elltdpdev', 'gd_goods_smry_out'), ('elltprdev', 'gd_goods_smry_out'), ('elltdpdev', 'gd_item_sup_entprz_stk_out'), ('elltdpdev', 'gd_md_gsgr_out'), ('elltprdev', 'gd_md_gsgr_out'), ('elltdpdev', 'gd_sup_entprz_magn_out'), ('elltombqdev', 'lo_claim_dlv_out'), ('elltombqdev', 'lo_ord_dlv_out'), ('elltprdev', 'mb_ec_cust_out'), ('elltprdev', 'mb_mbr_grd_out'), ('elltombqdev', 'om_claim_dtl_hst_out'), ('elltombqdev', 'om_claim_dtl_out'), ('elltsedev', 'om_claim_dtl_out'), ('elltombqdev', 'om_claim_out'), ('elltombqdev', 'om_claim_stat_hst_out'), ('elltombqdev', 'om_ord_dtl_hst_out'), ('elltombqdev', 'om_ord_dtl_out'), ('elltsedev', 'om_ord_dtl_out'), ('elltombqdev', 'om_ord_exp_goods_out'), ('elltsedev', 'om_ord_exp_goods_out'), ('elltombqdev', 'om_ord_exp_out'), ('elltsedev', 'om_ord_exp_out'), ('elltombqdev', 'om_ord_fvr_out'), ('elltsedev', 'om_ord_fvr_out'), ('elltombqdev', 'om_ord_out'), ('elltombqdev', 'om_ord_stat_hst_out'), ('elltdpdev', 'pr_cmpn_dc_goods_smry_out'), ('elltgddev', 'pr_cmpn_dc_goods_smry_out'), ('elltdpdev', 'pr_dc_xclud_goods_out'), ('elltgddev', 'pr_dc_xclud_goods_out'), ('elltsedev', 'py_keep_mny_dtl_out'), ('elltsedev', 'py_mbsh_point_if_out'), ('elltombqdev', 'py_pyf_out'), ('elltsedev', 'py_pyf_out'), ('elltombqdev', 'st_csco_cd_out'), ('elltombqdev', 'st_csco_grp_cd_out')]
+############ elltccdev.cc_intrst_mbr_dtl -> elltprdev.cc_intrst_mbr_dtl_out##############
+
+############ elltdpdev.dp_dshop_dgoods -> elltprdev.dp_dshop_dgoods_out##############
+
+############ elltdpdev.dp_dshop -> elltprdev.dp_dshop_out##############
+
+############ elltdpdev.dp_scat -> ltcmatdev.dp_scat_out##############
+
+############ elltetdev.et_entprz_hldy -> elltlodev.et_entprz_hldy_out##############
+#소스: ELLTETDEV, 테이블 - ET_ENTPRZ_HLDY, 컬럼- MODR_ID, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 수정자아이디, , IS_NULLABLE- NO
+#타겟: ELLTLODEV, 테이블 - ET_ENTPRZ_HLDY_OUT, 컬럼- MODR_ID, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 수정자아이디, , IS_NULLABLE- YES
+ALTER TABLE ELLTLODEV.ET_ENTPRZ_HLDY_OUT CHANGE COLUMN `MODR_ID` 
+`MODR_ID` varchar(30) NOT NULL 
+comment '수정자아이디';
+#소스: ELLTETDEV, 테이블 - ET_ENTPRZ_HLDY, 컬럼- MODI_DTTM, type- datetime, CHARSET- None, 커맨트- 수정일시, , IS_NULLABLE- NO
+#타겟: ELLTLODEV, 테이블 - ET_ENTPRZ_HLDY_OUT, 컬럼- MODI_DTTM, type- datetime, CHARSET- None, 커맨트- 수정일시, , IS_NULLABLE- YES
+ALTER TABLE ELLTLODEV.ET_ENTPRZ_HLDY_OUT CHANGE COLUMN `MODI_DTTM` 
+`MODI_DTTM` datetime NOT NULL 
+comment '수정일시';
+
+############ elltetdev.et_entprz -> elltsedev.et_entprz_out##############
+
+############ elltetdev.et_entshp -> elltdpdev.et_entshp_out##############
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- HMPG_URL, type- varchar(150), CHARSET- utf8_general_ci, 커맨트- 홈페이지URL, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- HMPG_URL, type- varchar(150), CHARSET- ucs2_general_ci, 커맨트- 홈페이지URL, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `HMPG_URL` 
+`HMPG_URL` varchar(150)  NULL 
+comment '홈페이지URL';
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- ENTSHP_GROUP_DVS_CD, type- varchar(20), CHARSET- utf8_general_ci, 커맨트- 입점그룹구분코드, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- ENTSHP_GROUP_DVS_CD, type- varchar(20), CHARSET- ucs2_general_ci, 커맨트- 입점그룹구분코드, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `ENTSHP_GROUP_DVS_CD` 
+`ENTSHP_GROUP_DVS_CD` varchar(20)  NULL 
+comment '입점그룹구분코드';
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- ENTSHP_RGN_DVS_CD, type- varchar(20), CHARSET- utf8_general_ci, 커맨트- 입점지역구분코드, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- ENTSHP_RGN_DVS_CD, type- varchar(20), CHARSET- ucs2_general_ci, 커맨트- 입점지역구분코드, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `ENTSHP_RGN_DVS_CD` 
+`ENTSHP_RGN_DVS_CD` varchar(20)  NULL 
+comment '입점지역구분코드';
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- RGSTR_ID, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 등록자아이디, , IS_NULLABLE- NO
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- RGSTR_ID, type- varchar(30), CHARSET- ucs2_general_ci, 커맨트- 등록자아이디, , IS_NULLABLE- NO
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `RGSTR_ID` 
+`RGSTR_ID` varchar(30) NOT NULL 
+comment '등록자아이디';
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- RGSTR_NM, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 등록자명, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- RGSTR_NM, type- varchar(30), CHARSET- ucs2_general_ci, 커맨트- 등록자명, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `RGSTR_NM` 
+`RGSTR_NM` varchar(30)  NULL 
+comment '등록자명';
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- MODR_ID, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 수정자아이디, , IS_NULLABLE- NO
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- MODR_ID, type- varchar(30), CHARSET- ucs2_general_ci, 커맨트- 수정자아이디, , IS_NULLABLE- NO
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `MODR_ID` 
+`MODR_ID` varchar(30) NOT NULL 
+comment '수정자아이디';
+#소스: ELLTETDEV, 테이블 - ET_ENTSHP, 컬럼- MODR_NM, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 수정자명, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_ENTSHP_OUT, 컬럼- MODR_NM, type- varchar(30), CHARSET- ucs2_general_ci, 커맨트- 수정자명, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `MODR_NM` 
+`MODR_NM` varchar(30)  NULL 
+comment '수정자명';
+
+############ elltetdev.et_entshp -> elltomdev.et_entshp_out##############
+
+############ elltetdev.et_entshp -> elltprdev.et_entshp_out##############
+
+############ elltetdev.et_entshp -> elltsedev.et_entshp_out##############
+
+############ elltetdev.et_entshp_owh_wtgval -> elltomdev.et_entshp_owh_wtgval_out##############
+
+############ elltetdev.et_sup_entprz -> elltdpdev.et_sup_entprz_out##############
+#소스: ELLTETDEV, 테이블 - ET_SUP_ENTPRZ, 컬럼- RGSTR_NM, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 등록자명, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_SUP_ENTPRZ_OUT, 컬럼- RGSTR_NM, type- varchar(30), CHARSET- ucs2_general_ci, 커맨트- 등록자명, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_SUP_ENTPRZ_OUT CHANGE COLUMN `RGSTR_NM` 
+`RGSTR_NM` varchar(30)  NULL 
+comment '등록자명';
+#소스: ELLTETDEV, 테이블 - ET_SUP_ENTPRZ, 컬럼- MODR_NM, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 수정자명, , IS_NULLABLE- YES
+#타겟: ELLTDPDEV, 테이블 - ET_SUP_ENTPRZ_OUT, 컬럼- MODR_NM, type- varchar(30), CHARSET- ucs2_general_ci, 커맨트- 수정자명, , IS_NULLABLE- YES
+ALTER TABLE ELLTDPDEV.ET_SUP_ENTPRZ_OUT CHANGE COLUMN `MODR_NM` 
+`MODR_NM` varchar(30)  NULL 
+comment '수정자명';
+
+############ elltetdev.et_sup_entprz -> elltprdev.et_sup_entprz_out##############
+
+############ elltetdev.et_sup_entprz_owh_wtgval -> elltomdev.et_sup_entprz_owh_wtgval_out##############
+
+############ elltetdev.et_sup_entprz_prior_owh -> elltomdev.et_sup_entprz_prior_owh_out##############
+
+############ elltgddev.gd_brnd_conts -> elltdpdev.gd_brnd_conts_out##############
+
+############ elltgddev.gd_brnd -> elltcmdev.gd_brnd_out##############
+
+############ elltgddev.gd_brnd -> elltdpdev.gd_brnd_out##############
+#소스: ELLTGDDEV, 테이블 - GD_BRND, 컬럼- USE_YN, type- varchar(1), CHARSET- utf8_general_ci, 커맨트- 사용여부, , IS_NULLABLE- NO
+#타겟: ELLTDPDEV, 테이블 - GD_BRND_OUT, 컬럼- USE_YN, type- varchar(1), CHARSET- utf8_general_ci, 커맨트- , , IS_NULLABLE- NO
+ALTER TABLE ELLTDPDEV.GD_BRND_OUT CHANGE COLUMN `USE_YN` 
+`USE_YN` varchar(1) NOT NULL 
+comment '사용여부';
+
+############ elltgddev.gd_brnd -> elltprdev.gd_brnd_out##############
+
+############ elltgddev.gd_goods -> elltdpdev.gd_goods_out##############
+#소스: ELLTGDDEV, 테이블 - GD_GOODS, 컬럼- SL_STAT_CD, type- varchar(20), CHARSET- utf8_general_ci, 커맨트- 판매상태코드, , IS_NULLABLE- NO
+#타겟: ELLTDPDEV, 테이블 - GD_GOODS_OUT, 컬럼- SL_STAT_CD, type- varchar(20), CHARSET- utf8_general_ci, 커맨트- , , IS_NULLABLE- NO
+ALTER TABLE ELLTDPDEV.GD_GOODS_OUT CHANGE COLUMN `SL_STAT_CD` 
+`SL_STAT_CD` varchar(20) NOT NULL 
+comment '판매상태코드';
+
+############ elltgddev.gd_goods -> elltprdev.gd_goods_out##############
+
+############ elltgddev.gd_goods -> ltcmatdev.gd_goods_out##############
+
+############ elltgddev.gd_goods_prc -> elltdpdev.gd_goods_prc_out##############
+
+############ elltgddev.gd_goods_smry -> elltdpdev.gd_goods_smry_out##############
+
+############ elltgddev.gd_goods_smry -> elltprdev.gd_goods_smry_out##############
+
+############ elltgddev.gd_item_sup_entprz_stk -> elltdpdev.gd_item_sup_entprz_stk_out##############
+
+############ elltgddev.gd_md_gsgr -> elltdpdev.gd_md_gsgr_out##############
+
+############ elltgddev.gd_md_gsgr -> elltprdev.gd_md_gsgr_out##############
+
+############ elltgddev.gd_sup_entprz_magn -> elltdpdev.gd_sup_entprz_magn_out##############
+
+############ elltlodev.lo_claim_dlv -> elltombqdev.lo_claim_dlv_out##############
+
+############ elltlodev.lo_ord_dlv -> elltombqdev.lo_ord_dlv_out##############
+
+############ elltmbdev.mb_ec_cust -> elltprdev.mb_ec_cust_out##############
+#MB_EC_CUST_OUT:MBR_GRADE_CD 컬럼 소스에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST_OUT drop column `MBR_GRADE_CD`;
+
+############ elltmbdev.mb_mbr_grd -> elltprdev.mb_mbr_grd_out##############
+
+############ elltomdev.om_claim_dtl_hst -> elltombqdev.om_claim_dtl_hst_out##############
+
+############ elltomdev.om_claim_dtl -> elltombqdev.om_claim_dtl_out##############
+
+############ elltomdev.om_claim_dtl -> elltsedev.om_claim_dtl_out##############
+
+############ elltomdev.om_claim -> elltombqdev.om_claim_out##############
+
+############ elltomdev.om_claim_stat_hst -> elltombqdev.om_claim_stat_hst_out##############
+
+############ elltomdev.om_ord_dtl_hst -> elltombqdev.om_ord_dtl_hst_out##############
+
+############ elltomdev.om_ord_dtl -> elltombqdev.om_ord_dtl_out##############
+
+############ elltomdev.om_ord_dtl -> elltsedev.om_ord_dtl_out##############
+#소스: ELLTOMDEV, 테이블 - OM_ORD_DTL, 컬럼- STRPIC_LOC_CD, type- varchar(20), CHARSET- utf8_general_ci, 커맨트- 스마트위치코드, , IS_NULLABLE- YES
+#타겟: ELLTSEDEV, 테이블 - OM_ORD_DTL_OUT, 컬럼- STRPIC_LOC_CD, type- varchar(20), CHARSET- utf8_general_ci, 커맨트- 스마트픽위치코드, , IS_NULLABLE- YES
+ALTER TABLE ELLTSEDEV.OM_ORD_DTL_OUT CHANGE COLUMN `STRPIC_LOC_CD` 
+`STRPIC_LOC_CD` varchar(20)  NULL 
+comment '스마트위치코드';
+
+############ elltomdev.om_ord_exp_goods -> elltombqdev.om_ord_exp_goods_out##############
+
+############ elltomdev.om_ord_exp_goods -> elltsedev.om_ord_exp_goods_out##############
+
+############ elltomdev.om_ord_exp -> elltombqdev.om_ord_exp_out##############
+
+############ elltomdev.om_ord_exp -> elltsedev.om_ord_exp_out##############
+#소스: ELLTOMDEV, 테이블 - OM_ORD_EXP, 컬럼- CMPN_NO, type- varchar(8), CHARSET- utf8_general_ci, 커맨트- 켐페인번호, , IS_NULLABLE- YES
+#타겟: ELLTSEDEV, 테이블 - OM_ORD_EXP_OUT, 컬럼- CMPN_NO, type- varchar(8), CHARSET- utf8_general_ci, 커맨트- 캠페인번호, , IS_NULLABLE- YES
+ALTER TABLE ELLTSEDEV.OM_ORD_EXP_OUT CHANGE COLUMN `CMPN_NO` 
+`CMPN_NO` varchar(8)  NULL 
+comment '켐페인번호';
+
+############ elltomdev.om_ord_fvr -> elltombqdev.om_ord_fvr_out##############
+
+############ elltomdev.om_ord_fvr -> elltsedev.om_ord_fvr_out##############
+
+############ elltomdev.om_ord -> elltombqdev.om_ord_out##############
+
+############ elltomdev.om_ord_stat_hst -> elltombqdev.om_ord_stat_hst_out##############
+
+############ elltprdev.pr_cmpn_dc_goods_smry -> elltdpdev.pr_cmpn_dc_goods_smry_out##############
+
+############ elltprdev.pr_cmpn_dc_goods_smry -> elltgddev.pr_cmpn_dc_goods_smry_out##############
+
+############ elltprdev.pr_dc_xclud_goods -> elltdpdev.pr_dc_xclud_goods_out##############
+
+############ elltprdev.pr_dc_xclud_goods -> elltgddev.pr_dc_xclud_goods_out##############
+
+############ elltpydev.py_keep_mny_dtl -> elltsedev.py_keep_mny_dtl_out##############
+
+############ elltpydev.py_mbsh_point_if -> elltsedev.py_mbsh_point_if_out##############
+#소스: ELLTPYDEV, 테이블 - PY_MBSH_POINT_IF, 컬럼- ORD_NO, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 주문번호, , IS_NULLABLE- YES
+#타겟: ELLTSEDEV, 테이블 - PY_MBSH_POINT_IF_OUT, 컬럼- ORD_NO, type- varchar(30), CHARSET- utf8_general_ci, 커맨트- 주문번호, , IS_NULLABLE- NO
+ALTER TABLE ELLTSEDEV.PY_MBSH_POINT_IF_OUT CHANGE COLUMN `ORD_NO` 
+`ORD_NO` varchar(30)  NULL 
+comment '주문번호';
+#소스: ELLTPYDEV, 테이블 - PY_MBSH_POINT_IF, 컬럼- PYF_NO, type- int(11), CHARSET- None, 커맨트- 결제번호, , IS_NULLABLE- YES
+#타겟: ELLTSEDEV, 테이블 - PY_MBSH_POINT_IF_OUT, 컬럼- PYF_NO, type- int(11), CHARSET- None, 커맨트- 결제번호, , IS_NULLABLE- NO
+ALTER TABLE ELLTSEDEV.PY_MBSH_POINT_IF_OUT CHANGE COLUMN `PYF_NO` 
+`PYF_NO` int(11)  NULL 
+comment '결제번호';
+#소스: ELLTPYDEV, 테이블 - PY_MBSH_POINT_IF, 컬럼- ALYCO_APRV_NO, type- varchar(19), CHARSET- utf8_general_ci, 커맨트- 제휴사승인번호, , IS_NULLABLE- YES
+#타겟: ELLTSEDEV, 테이블 - PY_MBSH_POINT_IF_OUT, 컬럼- ALYCO_APRV_NO, type- varchar(12), CHARSET- utf8_general_ci, 커맨트- 제휴사승인번호, , IS_NULLABLE- YES
+ALTER TABLE ELLTSEDEV.PY_MBSH_POINT_IF_OUT CHANGE COLUMN `ALYCO_APRV_NO` 
+`ALYCO_APRV_NO` varchar(19)  NULL 
+comment '제휴사승인번호';
+
+############ elltpydev.py_pyf -> elltombqdev.py_pyf_out##############
+
+############ elltpydev.py_pyf -> elltsedev.py_pyf_out##############
+
+############ ltcmstdev.st_csco_cd -> elltombqdev.st_csco_cd_out##############
+
+############ ltcmstdev.st_csco_grp_cd -> elltombqdev.st_csco_grp_cd_out##############
+

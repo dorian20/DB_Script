@@ -1,0 +1,1592 @@
+다시 입력은 AGAIN_
+터널링포트: 61976,61978
+[('elltprdev', 'cc_intrst_mbr_dtl_out'), ('elltprdev', 'dp_dshop_dgoods_out'), ('elltprdev', 'dp_dshop_out'), ('ltcmatdev', 'dp_scat_out'), ('elltlodev', 'et_entprz_hldy_out'), ('elltsedev', 'et_entprz_out'), ('elltdpdev', 'et_entshp_out'), ('elltomdev', 'et_entshp_out'), ('elltprdev', 'et_entshp_out'), ('elltsedev', 'et_entshp_out'), ('elltomdev', 'et_entshp_owh_wtgval_out'), ('elltdpdev', 'et_sup_entprz_out'), ('elltprdev', 'et_sup_entprz_out'), ('elltomdev', 'et_sup_entprz_owh_wtgval_out'), ('elltomdev', 'et_sup_entprz_prior_owh_out'), ('elltdpdev', 'gd_brnd_conts_out'), ('elltcmdev', 'gd_brnd_out'), ('elltdpdev', 'gd_brnd_out'), ('elltprdev', 'gd_brnd_out'), ('elltdpdev', 'gd_goods_out'), ('elltprdev', 'gd_goods_out'), ('ltcmatdev', 'gd_goods_out'), ('elltdpdev', 'gd_goods_prc_out'), ('elltdpdev', 'gd_goods_smry_out'), ('elltprdev', 'gd_goods_smry_out'), ('elltdpdev', 'gd_item_sup_entprz_stk_out'), ('elltdpdev', 'gd_md_gsgr_out'), ('elltprdev', 'gd_md_gsgr_out'), ('elltdpdev', 'gd_sup_entprz_magn_out'), ('elltombqdev', 'lo_claim_dlv_out'), ('elltombqdev', 'lo_ord_dlv_out'), ('elltprdev', 'mb_ec_cust_out'), ('elltprdev', 'mb_mbr_grd_out'), ('elltombqdev', 'om_claim_dtl_hst_out'), ('elltombqdev', 'om_claim_dtl_out'), ('elltsedev', 'om_claim_dtl_out'), ('elltombqdev', 'om_claim_out'), ('elltombqdev', 'om_claim_stat_hst_out'), ('elltombqdev', 'om_ord_dtl_hst_out'), ('elltetldev', 'om_ord_dtl_out'), ('elltombqdev', 'om_ord_dtl_out'), ('elltsedev', 'om_ord_dtl_out'), ('elltombqdev', 'om_ord_exp_goods_out'), ('elltsedev', 'om_ord_exp_goods_out'), ('elltombqdev', 'om_ord_exp_out'), ('elltsedev', 'om_ord_exp_out'), ('elltombqdev', 'om_ord_fvr_out'), ('elltsedev', 'om_ord_fvr_out'), ('elltombqdev', 'om_ord_out'), ('elltombqdev', 'om_ord_stat_hst_out'), ('elltdpdev', 'pr_cmpn_dc_goods_smry_out'), ('elltgddev', 'pr_cmpn_dc_goods_smry_out'), ('elltdpdev', 'pr_dc_xclud_goods_out'), ('elltgddev', 'pr_dc_xclud_goods_out'), ('elltsedev', 'py_keep_mny_dtl_out'), ('elltsedev', 'py_mbsh_point_if_out'), ('elltombqdev', 'py_pyf_out'), ('elltsedev', 'py_pyf_out'), ('elltombqdev', 'st_csco_cd_out'), ('elltombqdev', 'st_csco_grp_cd_out')]
+############ elltccdev.cc_intrst_mbr_dtl -> elltprdev.cc_intrst_mbr_dtl_out##############
+#CC_INTRST_MBR_DTL:RGST_RSN_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.CC_INTRST_MBR_DTL ADD COLUMN RGST_RSN_EXPLN varchar(4000)  NULL 
+comment '등록사유설명'
+AFTER `INTRST_MBR_STAT_CD`;
+#CC_INTRST_MBR_DTL:ORD_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.CC_INTRST_MBR_DTL ADD COLUMN ORD_NO varchar(30)  NULL 
+comment '주문번호'
+AFTER `RGST_RSN_EXPLN`;
+#CC_INTRST_MBR_DTL:RGSTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.CC_INTRST_MBR_DTL ADD COLUMN RGSTR_NM varchar(30)  NULL 
+comment '등록자명'
+AFTER `RGSTR_ID`;
+#CC_INTRST_MBR_DTL:RELSEPSN_ID 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.CC_INTRST_MBR_DTL ADD COLUMN RELSEPSN_ID varchar(30)  NULL 
+comment '해제자ID'
+AFTER `RGST_DTTM`;
+#CC_INTRST_MBR_DTL:RELSEPSN_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.CC_INTRST_MBR_DTL ADD COLUMN RELSEPSN_NM varchar(30)  NULL 
+comment '해제자명'
+AFTER `RELSEPSN_ID`;
+
+############ elltdpdev.dp_dshop_dgoods -> elltprdev.dp_dshop_dgoods_out##############
+#DP_DSHOP_DGOODS:PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN PRIOR_SEQ int(3) NOT NULL 
+comment '우선순번'
+AFTER `GOODS_NO`;
+#DP_DSHOP_DGOODS:RPRT_DSHOP_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN RPRT_DSHOP_YN varchar(1) NOT NULL 
+comment '대표전시매장여부'
+AFTER `PRIOR_SEQ`;
+#DP_DSHOP_DGOODS:RGSTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN RGSTR_NM varchar(30)  NULL 
+comment '등록자명'
+AFTER `RGSTR_ID`;
+#DP_DSHOP_DGOODS:MODR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN MODR_NM varchar(30)  NULL 
+comment '수정자명'
+AFTER `MODR_ID`;
+#DP_DSHOP_DGOODS:DISP_STRT_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN DISP_STRT_DTTM datetime  NULL 
+comment '전시시작일시'
+AFTER `MODR_NM`;
+#DP_DSHOP_DGOODS:DISP_END_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN DISP_END_DTTM datetime  NULL 
+comment '전시종료일시'
+AFTER `DISP_STRT_DTTM`;
+#DP_DSHOP_DGOODS:GOODS_PBLC_STNC 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN GOODS_PBLC_STNC varchar(100)  NULL 
+comment '상품홍보문구'
+AFTER `DISP_END_DTTM`;
+#DP_DSHOP_DGOODS:INPUT_FG_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN INPUT_FG_NM varchar(100)  NULL 
+comment '입력플래그명'
+AFTER `GOODS_PBLC_STNC`;
+#DP_DSHOP_DGOODS:BNR_IMG_ROUTE_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN BNR_IMG_ROUTE_NM varchar(200)  NULL 
+comment '배너이미지경로명'
+AFTER `INPUT_FG_NM`;
+#DP_DSHOP_DGOODS:BNR_IMG_FILE_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP_DGOODS ADD COLUMN BNR_IMG_FILE_NM varchar(200)  NULL 
+comment '배너이미지파일명'
+AFTER `BNR_IMG_ROUTE_NM`;
+
+############ elltdpdev.dp_dshop -> elltprdev.dp_dshop_out##############
+#DP_DSHOP:DSHOP_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DSHOP_TYPE_CD varchar(20) NOT NULL 
+comment '전시매장유형코드'
+AFTER `DSHOP_NM`;
+#DP_DSHOP:DISP_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DISP_TYPE_CD varchar(20) NOT NULL 
+comment '전시유형코드'
+AFTER `DSHOP_TYPE_CD`;
+#소스: ELLTDPDEV,DP_DSHOP,RNKH_DSHOP_NO,int(5),None,상위전시매장번호,None,NO,
+#타겟: ELLTPRDEV,DP_DSHOP_OUT,RNKH_DSHOP_NO,int(5),None,상위전시매장번호,None,YES,
+ALTER TABLE ELLTPRDEV.DP_DSHOP_OUT CHANGE COLUMN `RNKH_DSHOP_NO` 
+`RNKH_DSHOP_NO` int(5) NOT NULL 
+comment '상위전시매장번호';
+#DP_DSHOP:DSHOP_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DSHOP_EXPLN varchar(200)  NULL 
+comment '전시매장설명'
+AFTER `RNKH_DSHOP_NO`;
+#DP_DSHOP:DSHOP_LEVEL 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DSHOP_LEVEL int(11) NOT NULL 
+comment '전시매장레벨'
+AFTER `DSHOP_EXPLN`;
+#DP_DSHOP:DSHOP_DEPTH_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DSHOP_DEPTH_NM varchar(1)  NULL 
+comment '전시매장뎁스명'
+AFTER `DSHOP_LEVEL`;
+#DP_DSHOP:DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DISP_PRIOR_SEQ int(3)  NULL 
+comment '전시우선순번'
+AFTER `DSHOP_DEPTH_NM`;
+#DP_DSHOP:MALL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN MALL_NO int(4) NOT NULL 
+comment '몰번호'
+AFTER `DISP_PRIOR_SEQ`;
+#DP_DSHOP:CAT_SORT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN CAT_SORT_CD varchar(20) NOT NULL 
+comment '카테고리소팅코드'
+AFTER `MALL_NO`;
+#DP_DSHOP:LF_CAT_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LF_CAT_YN varchar(1) NOT NULL 
+comment '리프카테고리여부'
+AFTER `CAT_SORT_CD`;
+#DP_DSHOP:B2E_DISP_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN B2E_DISP_TYPE_CD varchar(20) NOT NULL 
+comment 'B2E전시유형코드'
+AFTER `LF_CAT_YN`;
+#DP_DSHOP:PRTNR_OPEN_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN PRTNR_OPEN_YN varchar(1) NOT NULL 
+comment '파트너공개여부'
+AFTER `B2E_DISP_TYPE_CD`;
+#DP_DSHOP:DISP_STAT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DISP_STAT_CD varchar(20) NOT NULL 
+comment '전시상태코드'
+AFTER `PRTNR_OPEN_YN`;
+#DP_DSHOP:TITL_IMG_ROUTE_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN TITL_IMG_ROUTE_NM varchar(200)  NULL 
+comment '타이틀이미지경로명'
+AFTER `USE_YN`;
+#DP_DSHOP:TITL_IMG_FILE_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN TITL_IMG_FILE_NM varchar(200)  NULL 
+comment '타이틀이미지파일명'
+AFTER `TITL_IMG_ROUTE_NM`;
+#DP_DSHOP:TITL_MIMG_ROUTE_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN TITL_MIMG_ROUTE_NM varchar(200)  NULL 
+comment ''
+AFTER `TITL_IMG_FILE_NM`;
+#DP_DSHOP:TITL_MIMG_FILE_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN TITL_MIMG_FILE_NM varchar(200)  NULL 
+comment ''
+AFTER `TITL_MIMG_ROUTE_NM`;
+#DP_DSHOP:BRND_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN BRND_NO int(7)  NULL 
+comment '브랜드번호'
+AFTER `TITL_MIMG_FILE_NM`;
+#DP_DSHOP:STRPIC_CAT_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN STRPIC_CAT_YN varchar(1)  NULL 
+comment '스마트픽카테고리여부
+'
+AFTER `BRND_NO`;
+#DP_DSHOP:MV_URL_TGT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN MV_URL_TGT_CD varchar(20)  NULL 
+comment '이동URL타겟코드'
+AFTER `STRPIC_CAT_YN`;
+#DP_DSHOP:DSHOP_OUTPUT_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DSHOP_OUTPUT_TYPE_CD varchar(20)  NULL 
+comment '전시매장출력유형코드'
+AFTER `MV_URL_TGT_CD`;
+#DP_DSHOP:MV_URL 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN MV_URL varchar(150)  NULL 
+comment '이동URL'
+AFTER `DSHOP_OUTPUT_TYPE_CD`;
+#DP_DSHOP:SPDP_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN SPDP_NO int(11)  NULL 
+comment '기획전번호'
+AFTER `MV_URL`;
+#DP_DSHOP:MV_DSHOP_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN MV_DSHOP_NO int(5)  NULL 
+comment '이동전시매장번호'
+AFTER `SPDP_NO`;
+#DP_DSHOP:PRODP_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN PRODP_TYPE_CD varchar(20)  NULL 
+comment '전문관유형코드'
+AFTER `MV_DSHOP_NO`;
+#DP_DSHOP:DEL_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN DEL_YN varchar(1) NOT NULL 
+comment '삭제여부'
+AFTER `PRODP_TYPE_CD`;
+#DP_DSHOP:RGSTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN RGSTR_NM varchar(30)  NULL 
+comment '등록자명'
+AFTER `RGSTR_ID`;
+#DP_DSHOP:MODR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN MODR_NM varchar(30)  NULL 
+comment '수정자명'
+AFTER `MODR_ID`;
+#DP_DSHOP:LEVEL1_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL1_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨1전시우선순번'
+AFTER `LEVEL1_DSHOP_NO`;
+#DP_DSHOP:LEVEL2_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL2_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨2전시우선순번'
+AFTER `LEVEL2_DSHOP_NO`;
+#DP_DSHOP:LEVEL3_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL3_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨3전시우선순번'
+AFTER `LEVEL3_DSHOP_NO`;
+#DP_DSHOP:LEVEL4_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL4_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨4전시우선순번'
+AFTER `LEVEL4_DSHOP_NO`;
+#DP_DSHOP:LEVEL5_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL5_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨5전시우선순번'
+AFTER `LEVEL5_DSHOP_NO`;
+#DP_DSHOP:LEVEL6_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL6_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨6전시우선순번'
+AFTER `LEVEL6_DSHOP_NO`;
+#DP_DSHOP:LEVEL7_DISP_PRIOR_SEQ 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL7_DISP_PRIOR_SEQ int(3)  NULL 
+comment '레벨7전시우선순번'
+AFTER `LEVEL7_DSHOP_NO`;
+#DP_DSHOP:LEVEL_DISP_STAT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN LEVEL_DISP_STAT_CD varchar(20)  NULL 
+comment '레벨전시상태코드'
+AFTER `LEVEL_USE_YN`;
+#DP_DSHOP:TREE_EXPSR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN TREE_EXPSR_YN varchar(1) NOT NULL 
+comment '트리노출여부'
+AFTER `LEVEL_DISP_STAT_CD`;
+#DP_DSHOP:ENTSHP_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN ENTSHP_NO int(11)  NULL 
+comment '입점번호'
+AFTER `TREE_EXPSR_YN`;
+#DP_DSHOP:HDR_BG_CLOR_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.DP_DSHOP ADD COLUMN HDR_BG_CLOR_CD varchar(20)  NULL 
+comment '헤더배경색상코드'
+AFTER `ENTSHP_NO`;
+
+############ elltdpdev.dp_scat -> ltcmatdev.dp_scat_out##############
+#DP_SCAT:SCAT_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.DP_SCAT ADD COLUMN SCAT_NM varchar(100) NOT NULL 
+comment '표준카테고리명'
+AFTER `SCAT_NO`;
+#DP_SCAT:RGSTR_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.DP_SCAT ADD COLUMN RGSTR_NM varchar(30)  NULL 
+comment '등록자명'
+AFTER `RGSTR_ID`;
+#DP_SCAT:MODR_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.DP_SCAT ADD COLUMN MODR_NM varchar(30)  NULL 
+comment '수정자명'
+AFTER `MODR_ID`;
+
+############ elltetdev.et_entprz_hldy -> elltlodev.et_entprz_hldy_out##############
+#소스: ELLTETDEV,ET_ENTPRZ_HLDY,MODR_ID,varchar(30),utf8_general_ci,수정자아이디,None,NO,
+#타겟: ELLTLODEV,ET_ENTPRZ_HLDY_OUT,MODR_ID,varchar(30),utf8_general_ci,수정자아이디,None,YES,
+ALTER TABLE ELLTLODEV.ET_ENTPRZ_HLDY_OUT CHANGE COLUMN `MODR_ID` 
+`MODR_ID` varchar(30) NOT NULL 
+comment '수정자아이디';
+#소스: ELLTETDEV,ET_ENTPRZ_HLDY,MODI_DTTM,datetime,None,수정일시,None,NO,
+#타겟: ELLTLODEV,ET_ENTPRZ_HLDY_OUT,MODI_DTTM,datetime,None,수정일시,None,YES,
+ALTER TABLE ELLTLODEV.ET_ENTPRZ_HLDY_OUT CHANGE COLUMN `MODI_DTTM` 
+`MODI_DTTM` datetime NOT NULL 
+comment '수정일시';
+
+############ elltetdev.et_entprz -> elltsedev.et_entprz_out##############
+#ET_ENTPRZ:RPRT_ENTPRZ_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTSEDEV.ET_ENTPRZ ADD COLUMN RPRT_ENTPRZ_DVS_CD varchar(20)  NULL 
+comment '대표업체구분코드'
+AFTER `RPRT_ENTPRZ_NO`;
+
+############ elltetdev.et_entshp -> elltdpdev.et_entshp_out##############
+#소스: ELLTETDEV,ET_ENTSHP,HMPG_URL,varchar(150),utf8_general_ci,홈페이지URL,None,YES,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,HMPG_URL,varchar(150),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `HMPG_URL` 
+`HMPG_URL` varchar(150)  NULL 
+comment '홈페이지URL';
+#ET_ENTSHP:STR_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTDPDEV.ET_ENTSHP ADD COLUMN STR_CD varchar(20)  NULL 
+comment '점코드'
+AFTER `ENTPRZ_NO`;
+#소스: ELLTETDEV,ET_ENTSHP,ENTSHP_GROUP_DVS_CD,varchar(20),utf8_general_ci,입점그룹구분코드,None,YES,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,ENTSHP_GROUP_DVS_CD,varchar(20),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `ENTSHP_GROUP_DVS_CD` 
+`ENTSHP_GROUP_DVS_CD` varchar(20)  NULL 
+comment '입점그룹구분코드';
+#소스: ELLTETDEV,ET_ENTSHP,ENTSHP_RGN_DVS_CD,varchar(20),utf8_general_ci,입점지역구분코드,None,YES,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,ENTSHP_RGN_DVS_CD,varchar(20),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `ENTSHP_RGN_DVS_CD` 
+`ENTSHP_RGN_DVS_CD` varchar(20)  NULL 
+comment '입점지역구분코드';
+#소스: ELLTETDEV,ET_ENTSHP,RGSTR_ID,varchar(30),utf8_general_ci,등록자아이디,None,NO,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,RGSTR_ID,varchar(30),ucs2_general_ci,,None,NO,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `RGSTR_ID` 
+`RGSTR_ID` varchar(30) NOT NULL 
+comment '등록자아이디';
+#소스: ELLTETDEV,ET_ENTSHP,RGSTR_NM,varchar(30),utf8_general_ci,등록자명,None,YES,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,RGSTR_NM,varchar(30),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `RGSTR_NM` 
+`RGSTR_NM` varchar(30)  NULL 
+comment '등록자명';
+#소스: ELLTETDEV,ET_ENTSHP,RGST_DTTM,datetime,None,등록일시,None,NO,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,RGST_DTTM,datetime,None,,None,NO,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `RGST_DTTM` 
+`RGST_DTTM` datetime NOT NULL 
+comment '등록일시';
+#소스: ELLTETDEV,ET_ENTSHP,MODR_ID,varchar(30),utf8_general_ci,수정자아이디,None,NO,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,MODR_ID,varchar(30),ucs2_general_ci,,None,NO,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `MODR_ID` 
+`MODR_ID` varchar(30) NOT NULL 
+comment '수정자아이디';
+#소스: ELLTETDEV,ET_ENTSHP,MODR_NM,varchar(30),utf8_general_ci,수정자명,None,YES,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,MODR_NM,varchar(30),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `MODR_NM` 
+`MODR_NM` varchar(30)  NULL 
+comment '수정자명';
+#소스: ELLTETDEV,ET_ENTSHP,MODI_DTTM,datetime,None,수정일시,None,NO,
+#타겟: ELLTDPDEV,ET_ENTSHP_OUT,MODI_DTTM,datetime,None,,None,NO,
+ALTER TABLE ELLTDPDEV.ET_ENTSHP_OUT CHANGE COLUMN `MODI_DTTM` 
+`MODI_DTTM` datetime NOT NULL 
+comment '수정일시';
+
+############ elltetdev.et_entshp -> elltomdev.et_entshp_out##############
+
+############ elltetdev.et_entshp -> elltprdev.et_entshp_out##############
+#ET_ENTSHP:TDF_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN TDF_DVS_CD varchar(20)  NULL 
+comment '과면세구분코드'
+AFTER `ENTSHP_NM`;
+#ET_ENTSHP:TEL_RGN_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN TEL_RGN_NO varchar(4)  NULL 
+comment '전화지역번호'
+AFTER `ENTSHP_STAT_CD`;
+#ET_ENTSHP:TLOF_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN TLOF_NO varchar(4)  NULL 
+comment '전화국번호'
+AFTER `TEL_RGN_NO`;
+#ET_ENTSHP:TEL_SPRTLY_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN TEL_SPRTLY_NO varchar(4)  NULL 
+comment '전화개별번호'
+AFTER `TLOF_NO`;
+#ET_ENTSHP:FAX_RGN_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN FAX_RGN_NO varchar(4)  NULL 
+comment '팩스지역번호'
+AFTER `TEL_SPRTLY_NO`;
+#ET_ENTSHP:FAX_TX_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN FAX_TX_NO varchar(4)  NULL 
+comment '팩스국번호'
+AFTER `FAX_RGN_NO`;
+#ET_ENTSHP:FAX_SPRTLY_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN FAX_SPRTLY_NO varchar(4)  NULL 
+comment '팩스개별번호'
+AFTER `FAX_TX_NO`;
+#ET_ENTSHP:ENTSHP_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN ENTSHP_TYPE_CD varchar(20) NOT NULL 
+comment '입점유형코드'
+AFTER `FAX_SPRTLY_NO`;
+#ET_ENTSHP:HMPG_URL 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN HMPG_URL varchar(150)  NULL 
+comment '홈페이지URL'
+AFTER `ENTSHP_TYPE_CD`;
+#ET_ENTSHP:ENTPRZ_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN ENTPRZ_EXPLN varchar(1000)  NULL 
+comment '업체설명'
+AFTER `HMPG_URL`;
+#ET_ENTSHP:OFCHR_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN OFCHR_EXPLN varchar(100)  NULL 
+comment '근무시간설명'
+AFTER `ENTPRZ_EXPLN`;
+#ET_ENTSHP:STORE_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN STORE_PIC_USE_YN varchar(1) NOT NULL 
+comment '스토어픽사용여부'
+AFTER `OFCHR_EXPLN`;
+#ET_ENTSHP:RVS_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN RVS_PIC_USE_YN varchar(1) NOT NULL 
+comment '리버스픽사용여부'
+AFTER `STORE_PIC_USE_YN`;
+#ET_ENTSHP:CROSS_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN CROSS_PIC_USE_YN varchar(1) NOT NULL 
+comment '크로스픽사용여부'
+AFTER `RVS_PIC_USE_YN`;
+#ET_ENTSHP:SHOP_CNV_MSG_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN SHOP_CNV_MSG_YN varchar(1) NOT NULL 
+comment '매장전달메세지여부'
+AFTER `CROSS_PIC_USE_YN`;
+#ET_ENTSHP:DLVR_MSG_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN DLVR_MSG_YN varchar(1) NOT NULL 
+comment '배송메세지여부'
+AFTER `SHOP_CNV_MSG_YN`;
+#ET_ENTSHP:PRST_MSG_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN PRST_MSG_YN varchar(1) NOT NULL 
+comment '선물메세지여부'
+AFTER `DLVR_MSG_YN`;
+#ET_ENTSHP:PRST_PCK_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN PRST_PCK_USE_YN varchar(1) NOT NULL 
+comment '선물포장사용여부'
+AFTER `PRST_MSG_YN`;
+#ET_ENTSHP:LOGI_CNTR_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN LOGI_CNTR_NO int(11)  NULL 
+comment '물류센터번호'
+AFTER `PRST_PCK_USE_YN`;
+#ET_ENTSHP:SUM_PKG_PRIOR 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN SUM_PKG_PRIOR int(5)  NULL 
+comment '합포장우선순위'
+AFTER `LOGI_CNTR_NO`;
+#ET_ENTSHP:FINSHP_APL_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN FINSHP_APL_YN varchar(1) NOT NULL 
+comment '퇴점신청여부'
+AFTER `SUM_PKG_PRIOR`;
+#ET_ENTSHP:FINSHP_APL_DT 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN FINSHP_APL_DT varchar(8)  NULL 
+comment '퇴점신청일자'
+AFTER `FINSHP_APL_YN`;
+#ET_ENTSHP:ENTSHP_APL_DT 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN ENTSHP_APL_DT varchar(8)  NULL 
+comment '입점승인일자'
+AFTER `FINSHP_APL_DT`;
+#ET_ENTSHP:ENTPRZ_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN ENTPRZ_NO int(11) NOT NULL 
+comment '업체번호'
+AFTER `ENTSHP_APL_DT`;
+#ET_ENTSHP:STR_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN STR_CD varchar(20)  NULL 
+comment '점코드'
+AFTER `ENTPRZ_NO`;
+#ET_ENTSHP:ENTSHP_GROUP_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN ENTSHP_GROUP_DVS_CD varchar(20)  NULL 
+comment '입점그룹구분코드'
+AFTER `STR_CD`;
+#ET_ENTSHP:ENTSHP_RGN_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN ENTSHP_RGN_DVS_CD varchar(20)  NULL 
+comment '입점지역구분코드'
+AFTER `ENTSHP_GROUP_DVS_CD`;
+#ET_ENTSHP:RGSTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN RGSTR_NM varchar(30)  NULL 
+comment '등록자명'
+AFTER `RGSTR_ID`;
+#ET_ENTSHP:MODR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_ENTSHP ADD COLUMN MODR_NM varchar(30)  NULL 
+comment '수정자명'
+AFTER `MODR_ID`;
+
+############ elltetdev.et_entshp -> elltsedev.et_entshp_out##############
+
+############ elltetdev.et_entshp_owh_wtgval -> elltomdev.et_entshp_owh_wtgval_out##############
+
+############ elltetdev.et_sup_entprz -> elltdpdev.et_sup_entprz_out##############
+#소스: ELLTETDEV,ET_SUP_ENTPRZ,RGSTR_NM,varchar(30),utf8_general_ci,등록자명,None,YES,
+#타겟: ELLTDPDEV,ET_SUP_ENTPRZ_OUT,RGSTR_NM,varchar(30),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_SUP_ENTPRZ_OUT CHANGE COLUMN `RGSTR_NM` 
+`RGSTR_NM` varchar(30)  NULL 
+comment '등록자명';
+#소스: ELLTETDEV,ET_SUP_ENTPRZ,MODR_NM,varchar(30),utf8_general_ci,수정자명,None,YES,
+#타겟: ELLTDPDEV,ET_SUP_ENTPRZ_OUT,MODR_NM,varchar(30),ucs2_general_ci,,None,YES,
+ALTER TABLE ELLTDPDEV.ET_SUP_ENTPRZ_OUT CHANGE COLUMN `MODR_NM` 
+`MODR_NM` varchar(30)  NULL 
+comment '수정자명';
+
+############ elltetdev.et_sup_entprz -> elltprdev.et_sup_entprz_out##############
+#ET_SUP_ENTPRZ:TDF_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN TDF_DVS_CD varchar(20)  NULL 
+comment '과면세구분코드'
+AFTER `ENTPRZ_NM`;
+#ET_SUP_ENTPRZ:TEL_RGN_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN TEL_RGN_NO varchar(4)  NULL 
+comment '전화지역번호'
+AFTER `ENTPRZ_STAT_CD`;
+#ET_SUP_ENTPRZ:TLOF_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN TLOF_NO varchar(4)  NULL 
+comment '전화국번호'
+AFTER `TEL_RGN_NO`;
+#ET_SUP_ENTPRZ:TEL_SPRTLY_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN TEL_SPRTLY_NO varchar(4)  NULL 
+comment '전화개별번호'
+AFTER `TLOF_NO`;
+#ET_SUP_ENTPRZ:FAX_RGN_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN FAX_RGN_NO varchar(4)  NULL 
+comment '팩스지역번호'
+AFTER `TEL_SPRTLY_NO`;
+#ET_SUP_ENTPRZ:FAX_TX_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN FAX_TX_NO varchar(4)  NULL 
+comment '팩스국번호'
+AFTER `FAX_RGN_NO`;
+#ET_SUP_ENTPRZ:FAX_SPRTLY_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN FAX_SPRTLY_NO varchar(4)  NULL 
+comment '팩스개별번호'
+AFTER `FAX_TX_NO`;
+#ET_SUP_ENTPRZ:ENTSHP_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN ENTSHP_NO int(11) NOT NULL 
+comment '입점번호'
+AFTER `FAX_SPRTLY_NO`;
+#ET_SUP_ENTPRZ:PRST_PCK_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN PRST_PCK_USE_YN varchar(1) NOT NULL 
+comment '선물포장사용여부'
+AFTER `ENTSHP_NO`;
+#ET_SUP_ENTPRZ:SHOP_CNV_MSG_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN SHOP_CNV_MSG_YN varchar(1) NOT NULL 
+comment '매장전달메세지여부'
+AFTER `PRST_PCK_USE_YN`;
+#ET_SUP_ENTPRZ:DLVR_MSG_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN DLVR_MSG_YN varchar(1) NOT NULL 
+comment '배송메세지여부'
+AFTER `SHOP_CNV_MSG_YN`;
+#ET_SUP_ENTPRZ:STORE_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN STORE_PIC_USE_YN varchar(1) NOT NULL 
+comment '스토어픽사용여부'
+AFTER `DLVR_MSG_YN`;
+#ET_SUP_ENTPRZ:RVS_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN RVS_PIC_USE_YN varchar(1) NOT NULL 
+comment '리버스픽사용여부'
+AFTER `STORE_PIC_USE_YN`;
+#ET_SUP_ENTPRZ:CROSS_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN CROSS_PIC_USE_YN varchar(1) NOT NULL 
+comment '크로스픽사용여부'
+AFTER `RVS_PIC_USE_YN`;
+#ET_SUP_ENTPRZ:RGSTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN RGSTR_NM varchar(30)  NULL 
+comment '등록자명'
+AFTER `RGSTR_ID`;
+#ET_SUP_ENTPRZ:MODR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.ET_SUP_ENTPRZ ADD COLUMN MODR_NM varchar(30)  NULL 
+comment '수정자명'
+AFTER `MODR_ID`;
+
+############ elltetdev.et_sup_entprz_owh_wtgval -> elltomdev.et_sup_entprz_owh_wtgval_out##############
+
+############ elltetdev.et_sup_entprz_prior_owh -> elltomdev.et_sup_entprz_prior_owh_out##############
+
+############ elltgddev.gd_brnd_conts -> elltdpdev.gd_brnd_conts_out##############
+
+############ elltgddev.gd_brnd -> elltcmdev.gd_brnd_out##############
+#GD_BRND:HANGL_SRCH_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN HANGL_SRCH_NM varchar(100)  NULL 
+comment '한글검색명'
+AFTER `HANGL_ENG_DVS_CD`;
+#GD_BRND:ENG_SRCH_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN ENG_SRCH_NM varchar(100)  NULL 
+comment '영문검색명'
+AFTER `HANGL_SRCH_NM`;
+#GD_BRND:BRND_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN BRND_EXPLN varchar(200)  NULL 
+comment '브랜드설명'
+AFTER `ENG_SRCH_NM`;
+#GD_BRND:BRND_RQST_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN BRND_RQST_DTTM datetime  NULL 
+comment '브랜드요청일시'
+AFTER `BRND_APRV_STAT_CD`;
+#GD_BRND:BRND_RQSTR_ID 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN BRND_RQSTR_ID varchar(20)  NULL 
+comment '브랜드요청자아이디'
+AFTER `BRND_RQST_DTTM`;
+#GD_BRND:BRND_RQST_RSN_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN BRND_RQST_RSN_EXPLN varchar(200)  NULL 
+comment '브랜드요청사유설명'
+AFTER `BRND_RQSTR_ID`;
+#GD_BRND:BRND_APRV_GVBK_CNTS 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN BRND_APRV_GVBK_CNTS varchar(200)  NULL 
+comment '브랜드승인반려내용'
+AFTER `BRND_RQST_RSN_EXPLN`;
+#소스: ELLTGDDEV,GD_BRND,USE_YN,varchar(1),utf8_general_ci,,None,NO,
+#타겟: ELLTCMDEV,GD_BRND_OUT,USE_YN,varchar(1),utf8_general_ci,사용여부,None,NO,
+ALTER TABLE ELLTCMDEV.GD_BRND_OUT CHANGE COLUMN `USE_YN` 
+`USE_YN` varchar(1) NOT NULL 
+comment '';
+#GD_BRND:RPRT_BRND_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTCMDEV.GD_BRND ADD COLUMN RPRT_BRND_YN varchar(1) NOT NULL 
+comment '대표브랜드여부'
+AFTER `MODR_ID`;
+
+############ elltgddev.gd_brnd -> elltdpdev.gd_brnd_out##############
+
+############ elltgddev.gd_brnd -> elltprdev.gd_brnd_out##############
+#GD_BRND:LEVEL 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN LEVEL int(11) NOT NULL 
+comment '레벨'
+AFTER `BRND_NO`;
+#GD_BRND:BRND_HANGL_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_HANGL_NM varchar(100)  NULL 
+comment '브랜드한글명'
+AFTER `BRND_NM`;
+#GD_BRND:BRND_ENG_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_ENG_NM varchar(100)  NULL 
+comment '브랜드영문명'
+AFTER `BRND_HANGL_NM`;
+#GD_BRND:HANGL_ENG_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN HANGL_ENG_DVS_CD varchar(20) NOT NULL 
+comment '한글영문구분코드'
+AFTER `BRND_ENG_NM`;
+#GD_BRND:HANGL_SRCH_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN HANGL_SRCH_NM varchar(100)  NULL 
+comment '한글검색명'
+AFTER `HANGL_ENG_DVS_CD`;
+#GD_BRND:ENG_SRCH_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN ENG_SRCH_NM varchar(100)  NULL 
+comment '영문검색명'
+AFTER `HANGL_SRCH_NM`;
+#GD_BRND:BRND_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_EXPLN varchar(200)  NULL 
+comment '브랜드설명'
+AFTER `ENG_SRCH_NM`;
+#GD_BRND:BRND_APRV_STAT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_APRV_STAT_CD varchar(20) NOT NULL 
+comment '브랜드승인상태코드'
+AFTER `BRND_EXPLN`;
+#GD_BRND:BRND_RQST_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_RQST_DTTM datetime  NULL 
+comment '브랜드요청일시'
+AFTER `BRND_APRV_STAT_CD`;
+#GD_BRND:BRND_RQSTR_ID 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_RQSTR_ID varchar(20)  NULL 
+comment '브랜드요청자아이디'
+AFTER `BRND_RQST_DTTM`;
+#GD_BRND:BRND_RQST_RSN_EXPLN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_RQST_RSN_EXPLN varchar(200)  NULL 
+comment '브랜드요청사유설명'
+AFTER `BRND_RQSTR_ID`;
+#GD_BRND:BRND_APRV_GVBK_CNTS 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN BRND_APRV_GVBK_CNTS varchar(200)  NULL 
+comment '브랜드승인반려내용'
+AFTER `BRND_RQST_RSN_EXPLN`;
+#소스: ELLTGDDEV,GD_BRND,USE_YN,varchar(1),utf8_general_ci,,None,NO,
+#타겟: ELLTPRDEV,GD_BRND_OUT,USE_YN,varchar(1),utf8_general_ci,사용여부,None,NO,
+ALTER TABLE ELLTPRDEV.GD_BRND_OUT CHANGE COLUMN `USE_YN` 
+`USE_YN` varchar(1) NOT NULL 
+comment '';
+#GD_BRND:RPRT_BRND_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_BRND ADD COLUMN RPRT_BRND_YN varchar(1) NOT NULL 
+comment '대표브랜드여부'
+AFTER `MODR_ID`;
+
+############ elltgddev.gd_goods -> elltdpdev.gd_goods_out##############
+#GD_GOODS:OVS_DRECT_PUR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTDPDEV.GD_GOODS ADD COLUMN OVS_DRECT_PUR_YN varchar(1)  NULL 
+comment '해외직구여부'
+AFTER `RTRV_PRCS_TYPE_CD`;
+#GD_GOODS:DC_XCLUD_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTDPDEV.GD_GOODS ADD COLUMN DC_XCLUD_YN varchar(1) NOT NULL 
+comment '할인제외여부'
+AFTER `OVS_DRECT_PUR_YN`;
+#GD_GOODS:DTGT_SITE_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTDPDEV.GD_GOODS ADD COLUMN DTGT_SITE_DVS_CD varchar(20)  NULL 
+comment '전시대상사이트구분코드'
+AFTER `DC_XCLUD_YN`;
+#GD_GOODS:IDNE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTDPDEV.GD_GOODS ADD COLUMN IDNE_YN varchar(1)  NULL 
+comment '소득공제여부'
+AFTER `DTGT_SITE_DVS_CD`;
+#GD_GOODS:ISBN 컬럼 타겟에 없음
+ALTER TABLE ELLTDPDEV.GD_GOODS ADD COLUMN ISBN varchar(30)  NULL 
+comment 'ISBN'
+AFTER `IDNE_YN`;
+
+############ elltgddev.gd_goods -> elltprdev.gd_goods_out##############
+#GD_GOODS:GOODS_ENG_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GOODS_ENG_NM varchar(100)  NULL 
+comment '상품영문명'
+AFTER `GOODS_NM`;
+#GD_GOODS:MBL_GOODS_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MBL_GOODS_NM varchar(100)  NULL 
+comment '모바일상품명'
+AFTER `GOODS_ENG_NM`;
+#GD_GOODS:GOODS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GOODS_TYPE_CD varchar(20) NOT NULL 
+comment '상품유형코드'
+AFTER `MD_GSGR_NO`;
+#GD_GOODS:GOODS_ARTCL_EXPRSN_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GOODS_ARTCL_EXPRSN_DVS_CD varchar(20)  NULL 
+comment '상품항목표시구분코드'
+AFTER `GOODS_TYPE_CD`;
+#GD_GOODS:ITEM_RGST_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN ITEM_RGST_YN varchar(1) NOT NULL 
+comment '단품등록여부'
+AFTER `GOODS_ARTCL_EXPRSN_DVS_CD`;
+#GD_GOODS:GFT_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GFT_USE_YN varchar(1) NOT NULL 
+comment '사은품사용여부'
+AFTER `ITEM_RGST_YN`;
+#GD_GOODS:MORD_GOODS_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MORD_GOODS_NO varchar(15) NOT NULL 
+comment '통판상품번호'
+AFTER `GFT_USE_YN`;
+#GD_GOODS:MORD_SL_CNDT_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MORD_SL_CNDT_NO varchar(15) NOT NULL 
+comment '통판판매조건번호'
+AFTER `MORD_GOODS_NO`;
+#GD_GOODS:ORIG_MORD_SL_CNDT_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN ORIG_MORD_SL_CNDT_NO varchar(15)  NULL 
+comment '원통판판매조건번호'
+AFTER `MORD_SL_CNDT_NO`;
+#GD_GOODS:MDL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MDL_NO varchar(62)  NULL 
+comment '모델번호'
+AFTER `SUP_ENTPRZ_NO`;
+#GD_GOODS:PLORGN_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PLORGN_NO varchar(10)  NULL 
+comment '원산지번호'
+AFTER `MDL_NO`;
+#GD_GOODS:PLORGN_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PLORGN_NM varchar(100) NOT NULL 
+comment '원산지명'
+AFTER `PLORGN_NO`;
+#GD_GOODS:MFCR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MFCR_NM varchar(100) NOT NULL 
+comment '제조사명'
+AFTER `PLORGN_NM`;
+#GD_GOODS:SLR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SLR_NM varchar(100) NOT NULL 
+comment '판매자명'
+AFTER `MFCR_NM`;
+#GD_GOODS:ENTPRZ_GOODS_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN ENTPRZ_GOODS_NO varchar(24)  NULL 
+comment '업체상품번호'
+AFTER `SLR_NM`;
+#GD_GOODS:PRC_CMPR_EXPSR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PRC_CMPR_EXPSR_YN varchar(1) NOT NULL 
+comment '가격비교노출여부'
+AFTER `ENTPRZ_GOODS_NO`;
+#GD_GOODS:DSHOP_EXPSR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DSHOP_EXPSR_YN varchar(1) NOT NULL 
+comment '전시매장노출여부'
+AFTER `PRC_CMPR_EXPSR_YN`;
+#소스: ELLTGDDEV,GD_GOODS,SL_STAT_CD,varchar(20),utf8_general_ci,,None,NO,
+#타겟: ELLTPRDEV,GD_GOODS_OUT,SL_STAT_CD,varchar(20),utf8_general_ci,판매상태코드,None,NO,
+ALTER TABLE ELLTPRDEV.GD_GOODS_OUT CHANGE COLUMN `SL_STAT_CD` 
+`SL_STAT_CD` varchar(20) NOT NULL 
+comment '';
+#GD_GOODS:SL_WAY_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SL_WAY_CD varchar(20) NOT NULL 
+comment '판매방식코드'
+AFTER `SL_STAT_CD`;
+#GD_GOODS:SL_STRT_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SL_STRT_DTTM datetime NOT NULL 
+comment '판매시작일시'
+AFTER `SL_WAY_CD`;
+#GD_GOODS:SL_END_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SL_END_DTTM datetime NOT NULL 
+comment ''
+AFTER `SL_STRT_DTTM`;
+#GD_GOODS:SL_SHAPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SL_SHAPE_CD varchar(20) NOT NULL 
+comment '판매형태코드'
+AFTER `SL_END_DTTM`;
+#GD_GOODS:BUY_AGE_RSTRCT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN BUY_AGE_RSTRCT_CD varchar(20) NOT NULL 
+comment '구입나이제한코드'
+AFTER `SL_SHAPE_CD`;
+#GD_GOODS:MAX_MIN_PUR_QTY_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MAX_MIN_PUR_QTY_USE_YN varchar(1) NOT NULL 
+comment '최대최소구매수량사용여부'
+AFTER `BUY_AGE_RSTRCT_CD`;
+#GD_GOODS:MIN_RSTRCT_QTY 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MIN_RSTRCT_QTY int(10)  NULL 
+comment '최소제한수량'
+AFTER `MAX_MIN_PUR_QTY_USE_YN`;
+#GD_GOODS:MAX_RSTRCT_QTY 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MAX_RSTRCT_QTY int(10)  NULL 
+comment '최대제한수량'
+AFTER `MIN_RSTRCT_QTY`;
+#GD_GOODS:PROM_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PROM_YN varchar(1) NOT NULL 
+comment '판촉여부'
+AFTER `MAX_RSTRCT_QTY`;
+#GD_GOODS:MD_DSGNTN_ENTSHP_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN MD_DSGNTN_ENTSHP_NO int(11) NOT NULL 
+comment 'MD지정입점번호'
+AFTER `PROM_YN`;
+#GD_GOODS:DLV_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_TYPE_CD varchar(20) NOT NULL 
+comment '배송유형코드'
+AFTER `MD_DSGNTN_ENTSHP_NO`;
+#GD_GOODS:GOODS_WEIT 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GOODS_WEIT bigint(15)  NULL 
+comment '상품중량'
+AFTER `DLV_TYPE_CD`;
+#GD_GOODS:DLV_PRCS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_PRCS_TYPE_CD varchar(20) NOT NULL 
+comment '배송처리유형코드'
+AFTER `GOODS_WEIT`;
+#GD_GOODS:DLV_GOODS_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_GOODS_DVS_CD varchar(20) NOT NULL 
+comment '배송상품구분코드'
+AFTER `DLV_PRCS_TYPE_CD`;
+#GD_GOODS:DLV_PSB_RGN_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_PSB_RGN_CD varchar(20) NOT NULL 
+comment '배송가능지역코드'
+AFTER `DLV_GOODS_DVS_CD`;
+#GD_GOODS:DLV_MEAN_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_MEAN_CD varchar(20) NOT NULL 
+comment '배송수단코드'
+AFTER `DLV_PSB_RGN_CD`;
+#GD_GOODS:DLV_DUDT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_DUDT_CD varchar(20) NOT NULL 
+comment '배송기일코드'
+AFTER `DLV_MEAN_CD`;
+#GD_GOODS:DLV_CST_POL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_CST_POL_NO int(11) NOT NULL 
+comment '배송비정책번호'
+AFTER `DLV_DUDT_CD`;
+#GD_GOODS:EXCHG_RTN_PSB_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN EXCHG_RTN_PSB_CD varchar(20) NOT NULL 
+comment '교환반품가능코드'
+AFTER `DLV_CST_POL_NO`;
+#GD_GOODS:ENTPRZ_DLV_RTPL_ADDR 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN ENTPRZ_DLV_RTPL_ADDR varchar(200)  NULL 
+comment '업체배송반품지주소'
+AFTER `EXCHG_RTN_PSB_CD`;
+#GD_GOODS:CROSS_PIC_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN CROSS_PIC_YN varchar(1) NOT NULL 
+comment '크로스픽여부'
+AFTER `ENTPRZ_DLV_RTPL_ADDR`;
+#GD_GOODS:BOX_PCK_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN BOX_PCK_USE_YN varchar(1) NOT NULL 
+comment '박스포장사용여부'
+AFTER `CROSS_PIC_YN`;
+#GD_GOODS:SUM_PKG_PSB_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SUM_PKG_PSB_YN varchar(1) NOT NULL 
+comment '합포장가능여부'
+AFTER `BOX_PCK_USE_YN`;
+#GD_GOODS:PRST_PCK_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PRST_PCK_USE_YN varchar(1) NOT NULL 
+comment '선물포장사용여부'
+AFTER `SUM_PKG_PSB_YN`;
+#GD_GOODS:PRST_MSG_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PRST_MSG_USE_YN varchar(1) NOT NULL 
+comment '선물메시지사용여부'
+AFTER `PRST_PCK_USE_YN`;
+#GD_GOODS:DLV_MSG_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_MSG_USE_YN varchar(1) NOT NULL 
+comment '배송메시지사용여부'
+AFTER `PRST_MSG_USE_YN`;
+#GD_GOODS:SHOP_CNV_MSG_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SHOP_CNV_MSG_USE_YN varchar(1) NOT NULL 
+comment '매장전달메시지사용여부'
+AFTER `DLV_MSG_USE_YN`;
+#GD_GOODS:TDF_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN TDF_DVS_CD varchar(20) NOT NULL 
+comment '과면세구분코드'
+AFTER `SHOP_CNV_MSG_USE_YN`;
+#GD_GOODS:PUR_SHAPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PUR_SHAPE_CD varchar(20) NOT NULL 
+comment '매입형태코드'
+AFTER `TDF_DVS_CD`;
+#GD_GOODS:PMCT_FIX_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN PMCT_FIX_CD varchar(20) NOT NULL 
+comment '원가고정코드'
+AFTER `PUR_SHAPE_CD`;
+#GD_GOODS:GOODS_CPNT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GOODS_CPNT_CD varchar(20) NOT NULL 
+comment '상품구성코드'
+AFTER `PMCT_FIX_CD`;
+#GD_GOODS:BGOODS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN BGOODS_TYPE_CD varchar(20)  NULL 
+comment '묶음상품유형코드'
+AFTER `GOODS_CPNT_CD`;
+#GD_GOODS:GOODS_DTL_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN GOODS_DTL_TYPE_CD varchar(20)  NULL 
+comment '상품상세유형코드'
+AFTER `BGOODS_TYPE_CD`;
+#GD_GOODS:ORIG_SLPRC 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN ORIG_SLPRC int(10) NOT NULL 
+comment '원판매가'
+AFTER `MODR_ID`;
+#GD_GOODS:DC_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DC_TYPE_CD varchar(20)  NULL 
+comment '할인유형코드'
+AFTER `ORIG_SLPRC`;
+#GD_GOODS:SLPRC 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SLPRC int(10) NOT NULL 
+comment '판매가'
+AFTER `DC_TYPE_CD`;
+#GD_GOODS:SLPRC_STRT_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SLPRC_STRT_DTTM datetime  NULL 
+comment '판매가시작일시'
+AFTER `SLPRC`;
+#GD_GOODS:SLPRC_END_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN SLPRC_END_DTTM datetime  NULL 
+comment '판매가종료일시'
+AFTER `SLPRC_STRT_DTTM`;
+#GD_GOODS:DC_AMT 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DC_AMT int(10)  NULL 
+comment '할인금액'
+AFTER `SLPRC_END_DTTM`;
+#GD_GOODS:DLV_MNBD_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DLV_MNBD_CD varchar(20) NOT NULL 
+comment '배송주체코드'
+AFTER `DC_AMT`;
+#GD_GOODS:RTRV_PRCS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN RTRV_PRCS_TYPE_CD varchar(20) NOT NULL 
+comment '회수처리유형코드'
+AFTER `DLV_MNBD_CD`;
+#GD_GOODS:OVS_DRECT_PUR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN OVS_DRECT_PUR_YN varchar(1)  NULL 
+comment '해외직구여부'
+AFTER `RTRV_PRCS_TYPE_CD`;
+#GD_GOODS:DTGT_SITE_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN DTGT_SITE_DVS_CD varchar(20)  NULL 
+comment '전시대상사이트구분코드'
+AFTER `DC_XCLUD_YN`;
+#GD_GOODS:IDNE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN IDNE_YN varchar(1)  NULL 
+comment '소득공제여부'
+AFTER `DTGT_SITE_DVS_CD`;
+#GD_GOODS:ISBN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_GOODS ADD COLUMN ISBN varchar(30)  NULL 
+comment 'ISBN'
+AFTER `IDNE_YN`;
+
+############ elltgddev.gd_goods -> ltcmatdev.gd_goods_out##############
+#소스: ELLTGDDEV,GD_GOODS,GOODS_NO,varchar(20),utf8_general_ci,상품번호,None,NO,
+#타겟: LTCMATDEV,GD_GOODS_OUT,GOODS_NO,varchar(20),utf8_general_ci,,None,NO,
+ALTER TABLE LTCMATDEV.GD_GOODS_OUT CHANGE COLUMN `GOODS_NO` 
+`GOODS_NO` varchar(20) NOT NULL 
+comment '상품번호';
+#소스: ELLTGDDEV,GD_GOODS,GOODS_NM,varchar(100),utf8_general_ci,상품명,None,NO,
+#타겟: LTCMATDEV,GD_GOODS_OUT,GOODS_NM,varchar(100),utf8_general_ci,,None,NO,
+ALTER TABLE LTCMATDEV.GD_GOODS_OUT CHANGE COLUMN `GOODS_NM` 
+`GOODS_NM` varchar(100) NOT NULL 
+comment '상품명';
+#GD_GOODS:GOODS_ENG_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GOODS_ENG_NM varchar(100)  NULL 
+comment '상품영문명'
+AFTER `GOODS_NM`;
+#GD_GOODS:MBL_GOODS_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MBL_GOODS_NM varchar(100)  NULL 
+comment '모바일상품명'
+AFTER `GOODS_ENG_NM`;
+#GD_GOODS:BRND_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN BRND_NO int(7) NOT NULL 
+comment '브랜드번호'
+AFTER `MBL_GOODS_NM`;
+#GD_GOODS:MD_GSGR_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MD_GSGR_NO varchar(20) NOT NULL 
+comment 'MD상품군번호'
+AFTER `BRND_NO`;
+#GD_GOODS:GOODS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GOODS_TYPE_CD varchar(20) NOT NULL 
+comment '상품유형코드'
+AFTER `MD_GSGR_NO`;
+#GD_GOODS:GOODS_ARTCL_EXPRSN_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GOODS_ARTCL_EXPRSN_DVS_CD varchar(20)  NULL 
+comment '상품항목표시구분코드'
+AFTER `GOODS_TYPE_CD`;
+#GD_GOODS:ITEM_RGST_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ITEM_RGST_YN varchar(1) NOT NULL 
+comment '단품등록여부'
+AFTER `GOODS_ARTCL_EXPRSN_DVS_CD`;
+#GD_GOODS:GFT_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GFT_USE_YN varchar(1) NOT NULL 
+comment '사은품사용여부'
+AFTER `ITEM_RGST_YN`;
+#소스: ELLTGDDEV,GD_GOODS,MORD_GOODS_NO,varchar(15),utf8_general_ci,통판상품번호,None,NO,
+#타겟: LTCMATDEV,GD_GOODS_OUT,MORD_GOODS_NO,varchar(15),utf8_general_ci,통판상품번호,None,YES,
+ALTER TABLE LTCMATDEV.GD_GOODS_OUT CHANGE COLUMN `MORD_GOODS_NO` 
+`MORD_GOODS_NO` varchar(15) NOT NULL 
+comment '통판상품번호';
+#소스: ELLTGDDEV,GD_GOODS,MORD_SL_CNDT_NO,varchar(15),utf8_general_ci,통판판매조건번호,None,NO,
+#타겟: LTCMATDEV,GD_GOODS_OUT,MORD_SL_CNDT_NO,varchar(15),utf8_general_ci,통판판매조건번호,None,YES,
+ALTER TABLE LTCMATDEV.GD_GOODS_OUT CHANGE COLUMN `MORD_SL_CNDT_NO` 
+`MORD_SL_CNDT_NO` varchar(15) NOT NULL 
+comment '통판판매조건번호';
+#GD_GOODS:ORIG_MORD_SL_CNDT_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ORIG_MORD_SL_CNDT_NO varchar(15)  NULL 
+comment '원통판판매조건번호'
+AFTER `MORD_SL_CNDT_NO`;
+#GD_GOODS:ENTSHP_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ENTSHP_NO int(11) NOT NULL 
+comment '입점번호'
+AFTER `ORIG_MORD_SL_CNDT_NO`;
+#GD_GOODS:SUP_ENTPRZ_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SUP_ENTPRZ_NO int(11) NOT NULL 
+comment '공급업체번호'
+AFTER `ENTSHP_NO`;
+#GD_GOODS:MDL_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MDL_NO varchar(62)  NULL 
+comment '모델번호'
+AFTER `SUP_ENTPRZ_NO`;
+#GD_GOODS:PLORGN_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PLORGN_NO varchar(10)  NULL 
+comment '원산지번호'
+AFTER `MDL_NO`;
+#GD_GOODS:PLORGN_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PLORGN_NM varchar(100) NOT NULL 
+comment '원산지명'
+AFTER `PLORGN_NO`;
+#GD_GOODS:MFCR_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MFCR_NM varchar(100) NOT NULL 
+comment '제조사명'
+AFTER `PLORGN_NM`;
+#GD_GOODS:SLR_NM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SLR_NM varchar(100) NOT NULL 
+comment '판매자명'
+AFTER `MFCR_NM`;
+#GD_GOODS:ENTPRZ_GOODS_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ENTPRZ_GOODS_NO varchar(24)  NULL 
+comment '업체상품번호'
+AFTER `SLR_NM`;
+#GD_GOODS:PRC_CMPR_EXPSR_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PRC_CMPR_EXPSR_YN varchar(1) NOT NULL 
+comment '가격비교노출여부'
+AFTER `ENTPRZ_GOODS_NO`;
+#GD_GOODS:DSHOP_EXPSR_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DSHOP_EXPSR_YN varchar(1) NOT NULL 
+comment '전시매장노출여부'
+AFTER `PRC_CMPR_EXPSR_YN`;
+#GD_GOODS:SL_STAT_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SL_STAT_CD varchar(20) NOT NULL 
+comment ''
+AFTER `DSHOP_EXPSR_YN`;
+#GD_GOODS:SL_WAY_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SL_WAY_CD varchar(20) NOT NULL 
+comment '판매방식코드'
+AFTER `SL_STAT_CD`;
+#GD_GOODS:SL_STRT_DTTM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SL_STRT_DTTM datetime NOT NULL 
+comment '판매시작일시'
+AFTER `SL_WAY_CD`;
+#GD_GOODS:SL_END_DTTM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SL_END_DTTM datetime NOT NULL 
+comment ''
+AFTER `SL_STRT_DTTM`;
+#GD_GOODS:SL_SHAPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SL_SHAPE_CD varchar(20) NOT NULL 
+comment '판매형태코드'
+AFTER `SL_END_DTTM`;
+#GD_GOODS:BUY_AGE_RSTRCT_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN BUY_AGE_RSTRCT_CD varchar(20) NOT NULL 
+comment '구입나이제한코드'
+AFTER `SL_SHAPE_CD`;
+#GD_GOODS:MAX_MIN_PUR_QTY_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MAX_MIN_PUR_QTY_USE_YN varchar(1) NOT NULL 
+comment '최대최소구매수량사용여부'
+AFTER `BUY_AGE_RSTRCT_CD`;
+#GD_GOODS:MIN_RSTRCT_QTY 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MIN_RSTRCT_QTY int(10)  NULL 
+comment '최소제한수량'
+AFTER `MAX_MIN_PUR_QTY_USE_YN`;
+#GD_GOODS:MAX_RSTRCT_QTY 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MAX_RSTRCT_QTY int(10)  NULL 
+comment '최대제한수량'
+AFTER `MIN_RSTRCT_QTY`;
+#GD_GOODS:PROM_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PROM_YN varchar(1) NOT NULL 
+comment '판촉여부'
+AFTER `MAX_RSTRCT_QTY`;
+#GD_GOODS:MD_DSGNTN_ENTSHP_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN MD_DSGNTN_ENTSHP_NO int(11) NOT NULL 
+comment 'MD지정입점번호'
+AFTER `PROM_YN`;
+#GD_GOODS:DLV_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_TYPE_CD varchar(20) NOT NULL 
+comment '배송유형코드'
+AFTER `MD_DSGNTN_ENTSHP_NO`;
+#GD_GOODS:GOODS_WEIT 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GOODS_WEIT bigint(15)  NULL 
+comment '상품중량'
+AFTER `DLV_TYPE_CD`;
+#GD_GOODS:DLV_PRCS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_PRCS_TYPE_CD varchar(20) NOT NULL 
+comment '배송처리유형코드'
+AFTER `GOODS_WEIT`;
+#GD_GOODS:DLV_GOODS_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_GOODS_DVS_CD varchar(20) NOT NULL 
+comment '배송상품구분코드'
+AFTER `DLV_PRCS_TYPE_CD`;
+#GD_GOODS:DLV_PSB_RGN_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_PSB_RGN_CD varchar(20) NOT NULL 
+comment '배송가능지역코드'
+AFTER `DLV_GOODS_DVS_CD`;
+#GD_GOODS:DLV_MEAN_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_MEAN_CD varchar(20) NOT NULL 
+comment '배송수단코드'
+AFTER `DLV_PSB_RGN_CD`;
+#GD_GOODS:DLV_DUDT_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_DUDT_CD varchar(20) NOT NULL 
+comment '배송기일코드'
+AFTER `DLV_MEAN_CD`;
+#GD_GOODS:DLV_CST_POL_NO 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_CST_POL_NO int(11) NOT NULL 
+comment '배송비정책번호'
+AFTER `DLV_DUDT_CD`;
+#GD_GOODS:EXCHG_RTN_PSB_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN EXCHG_RTN_PSB_CD varchar(20) NOT NULL 
+comment '교환반품가능코드'
+AFTER `DLV_CST_POL_NO`;
+#GD_GOODS:ENTPRZ_DLV_RTPL_ADDR 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ENTPRZ_DLV_RTPL_ADDR varchar(200)  NULL 
+comment '업체배송반품지주소'
+AFTER `EXCHG_RTN_PSB_CD`;
+#GD_GOODS:CROSS_PIC_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN CROSS_PIC_YN varchar(1) NOT NULL 
+comment '크로스픽여부'
+AFTER `ENTPRZ_DLV_RTPL_ADDR`;
+#GD_GOODS:BOX_PCK_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN BOX_PCK_USE_YN varchar(1) NOT NULL 
+comment '박스포장사용여부'
+AFTER `CROSS_PIC_YN`;
+#GD_GOODS:SUM_PKG_PSB_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SUM_PKG_PSB_YN varchar(1) NOT NULL 
+comment '합포장가능여부'
+AFTER `BOX_PCK_USE_YN`;
+#GD_GOODS:PRST_PCK_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PRST_PCK_USE_YN varchar(1) NOT NULL 
+comment '선물포장사용여부'
+AFTER `SUM_PKG_PSB_YN`;
+#GD_GOODS:PRST_MSG_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PRST_MSG_USE_YN varchar(1) NOT NULL 
+comment '선물메시지사용여부'
+AFTER `PRST_PCK_USE_YN`;
+#GD_GOODS:DLV_MSG_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_MSG_USE_YN varchar(1) NOT NULL 
+comment '배송메시지사용여부'
+AFTER `PRST_MSG_USE_YN`;
+#GD_GOODS:SHOP_CNV_MSG_USE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SHOP_CNV_MSG_USE_YN varchar(1) NOT NULL 
+comment '매장전달메시지사용여부'
+AFTER `DLV_MSG_USE_YN`;
+#GD_GOODS:TDF_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN TDF_DVS_CD varchar(20) NOT NULL 
+comment '과면세구분코드'
+AFTER `SHOP_CNV_MSG_USE_YN`;
+#GD_GOODS:PUR_SHAPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PUR_SHAPE_CD varchar(20) NOT NULL 
+comment '매입형태코드'
+AFTER `TDF_DVS_CD`;
+#GD_GOODS:PMCT_FIX_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN PMCT_FIX_CD varchar(20) NOT NULL 
+comment '원가고정코드'
+AFTER `PUR_SHAPE_CD`;
+#GD_GOODS:GOODS_CPNT_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GOODS_CPNT_CD varchar(20) NOT NULL 
+comment '상품구성코드'
+AFTER `PMCT_FIX_CD`;
+#GD_GOODS:BGOODS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN BGOODS_TYPE_CD varchar(20)  NULL 
+comment '묶음상품유형코드'
+AFTER `GOODS_CPNT_CD`;
+#GD_GOODS:GOODS_DTL_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN GOODS_DTL_TYPE_CD varchar(20)  NULL 
+comment '상품상세유형코드'
+AFTER `BGOODS_TYPE_CD`;
+#GD_GOODS:ORIG_SLPRC 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ORIG_SLPRC int(10) NOT NULL 
+comment '원판매가'
+AFTER `MODR_ID`;
+#GD_GOODS:DC_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DC_TYPE_CD varchar(20)  NULL 
+comment '할인유형코드'
+AFTER `ORIG_SLPRC`;
+#GD_GOODS:SLPRC 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SLPRC int(10) NOT NULL 
+comment '판매가'
+AFTER `DC_TYPE_CD`;
+#GD_GOODS:SLPRC_STRT_DTTM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SLPRC_STRT_DTTM datetime  NULL 
+comment '판매가시작일시'
+AFTER `SLPRC`;
+#GD_GOODS:SLPRC_END_DTTM 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN SLPRC_END_DTTM datetime  NULL 
+comment '판매가종료일시'
+AFTER `SLPRC_STRT_DTTM`;
+#GD_GOODS:DC_AMT 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DC_AMT int(10)  NULL 
+comment '할인금액'
+AFTER `SLPRC_END_DTTM`;
+#GD_GOODS:DLV_MNBD_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DLV_MNBD_CD varchar(20) NOT NULL 
+comment '배송주체코드'
+AFTER `DC_AMT`;
+#GD_GOODS:RTRV_PRCS_TYPE_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN RTRV_PRCS_TYPE_CD varchar(20) NOT NULL 
+comment '회수처리유형코드'
+AFTER `DLV_MNBD_CD`;
+#GD_GOODS:OVS_DRECT_PUR_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN OVS_DRECT_PUR_YN varchar(1)  NULL 
+comment '해외직구여부'
+AFTER `RTRV_PRCS_TYPE_CD`;
+#GD_GOODS:DC_XCLUD_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DC_XCLUD_YN varchar(1) NOT NULL 
+comment '할인제외여부'
+AFTER `OVS_DRECT_PUR_YN`;
+#GD_GOODS:DTGT_SITE_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN DTGT_SITE_DVS_CD varchar(20)  NULL 
+comment '전시대상사이트구분코드'
+AFTER `DC_XCLUD_YN`;
+#GD_GOODS:IDNE_YN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN IDNE_YN varchar(1)  NULL 
+comment '소득공제여부'
+AFTER `DTGT_SITE_DVS_CD`;
+#GD_GOODS:ISBN 컬럼 타겟에 없음
+ALTER TABLE LTCMATDEV.GD_GOODS ADD COLUMN ISBN varchar(30)  NULL 
+comment 'ISBN'
+AFTER `IDNE_YN`;
+
+############ elltgddev.gd_goods_prc -> elltdpdev.gd_goods_prc_out##############
+
+############ elltgddev.gd_goods_smry -> elltdpdev.gd_goods_smry_out##############
+#소스: ELLTGDDEV,GD_GOODS_SMRY,CUST_STFD_EVLSCR1,smallint(2),None,고객만족도평점1,None,YES,
+#타겟: ELLTDPDEV,GD_GOODS_SMRY_OUT,CUST_STFD_EVLSCR1,smallint(6),None,고객만족도평점1,None,YES,
+ALTER TABLE ELLTDPDEV.GD_GOODS_SMRY_OUT CHANGE COLUMN `CUST_STFD_EVLSCR1` 
+`CUST_STFD_EVLSCR1` smallint(2)  NULL 
+comment '고객만족도평점1';
+#소스: ELLTGDDEV,GD_GOODS_SMRY,CUST_STFD_EVLSCR2,smallint(2),None,고객만족도평점2,None,YES,
+#타겟: ELLTDPDEV,GD_GOODS_SMRY_OUT,CUST_STFD_EVLSCR2,smallint(6),None,고객만족도평점2,None,YES,
+ALTER TABLE ELLTDPDEV.GD_GOODS_SMRY_OUT CHANGE COLUMN `CUST_STFD_EVLSCR2` 
+`CUST_STFD_EVLSCR2` smallint(2)  NULL 
+comment '고객만족도평점2';
+
+############ elltgddev.gd_goods_smry -> elltprdev.gd_goods_smry_out##############
+
+############ elltgddev.gd_item_sup_entprz_stk -> elltdpdev.gd_item_sup_entprz_stk_out##############
+
+############ elltgddev.gd_md_gsgr -> elltdpdev.gd_md_gsgr_out##############
+
+############ elltgddev.gd_md_gsgr -> elltprdev.gd_md_gsgr_out##############
+#GD_MD_GSGR:LEVEL 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN LEVEL int(11) NOT NULL 
+comment '레벨'
+AFTER `MD_ID`;
+#GD_MD_GSGR:DC_GSGR_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN DC_GSGR_NO int(11)  NULL 
+comment '할인상품군번호'
+AFTER `USE_YN`;
+#GD_MD_GSGR:DC_GSGR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN DC_GSGR_NM varchar(100)  NULL 
+comment '할인상품군명'
+AFTER `DC_GSGR_NO`;
+#GD_MD_GSGR:TXTN_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN TXTN_USE_YN varchar(1) NOT NULL 
+comment '과세사용여부'
+AFTER `DC_GSGR_NM`;
+#GD_MD_GSGR:DF_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN DF_USE_YN varchar(1) NOT NULL 
+comment '면세사용여부'
+AFTER `TXTN_USE_YN`;
+#GD_MD_GSGR:GFTVC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN GFTVC_USE_YN varchar(1) NOT NULL 
+comment '상품권사용여부'
+AFTER `DF_USE_YN`;
+#GD_MD_GSGR:CMP_EXPRSN_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN CMP_EXPRSN_YN varchar(1) NOT NULL 
+comment '성분표시여부'
+AFTER `GFTVC_USE_YN`;
+#GD_MD_GSGR:RVS_PIC_USE_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN RVS_PIC_USE_YN varchar(1) NOT NULL 
+comment '리버스픽사용여부'
+AFTER `CMP_EXPRSN_YN`;
+#GD_MD_GSGR:RMKS_CNTS 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.GD_MD_GSGR ADD COLUMN RMKS_CNTS varchar(4000) NOT NULL 
+comment '비고내용'
+AFTER `RVS_PIC_USE_YN`;
+
+############ elltgddev.gd_sup_entprz_magn -> elltdpdev.gd_sup_entprz_magn_out##############
+
+############ elltlodev.lo_claim_dlv -> elltombqdev.lo_claim_dlv_out##############
+
+############ elltlodev.lo_ord_dlv -> elltombqdev.lo_ord_dlv_out##############
+
+############ elltmbdev.mb_ec_cust -> elltprdev.mb_ec_cust_out##############
+#MB_EC_CUST:CSCO_ID 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CSCO_ID varchar(20)  NULL 
+comment '고객사ID'
+AFTER `EC_CUST_NO`;
+#MB_EC_CUST:SITE_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN SITE_NO int(11)  NULL 
+comment '사이트번호'
+AFTER `CSCO_ID`;
+#MB_EC_CUST:EC_CUST_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN EC_CUST_DVS_CD varchar(20)  NULL 
+comment 'EC고객구분코드'
+AFTER `SITE_NO`;
+#MB_EC_CUST:CUST_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CUST_NM varchar(30) NOT NULL 
+comment '고객명'
+AFTER `EC_CUST_DVS_CD`;
+#MB_EC_CUST:MCC_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MCC_DVS_CD varchar(20)  NULL 
+comment '이동통신사구분코드'
+AFTER `CUST_NM`;
+#MB_EC_CUST:MCC_NO_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MCC_NO_CD varchar(20) NOT NULL 
+comment '이동통신사번호코드'
+AFTER `MCC_DVS_CD`;
+#MB_EC_CUST:CUST_CELL_TX_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CUST_CELL_TX_NO varchar(4) NOT NULL 
+comment '고객휴대폰국번호'
+AFTER `MCC_NO_CD`;
+#MB_EC_CUST:CUST_CELL_SPRTLY_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CUST_CELL_SPRTLY_NO varchar(4) NOT NULL 
+comment '고객휴대폰개별번호'
+AFTER `CUST_CELL_TX_NO`;
+#MB_EC_CUST:FRNR_CUST_CELL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN FRNR_CUST_CELL_NO varchar(20)  NULL 
+comment '외국인고객휴대폰번호'
+AFTER `CUST_CELL_SPRTLY_NO`;
+#MB_EC_CUST:CUST_EMAIL_ADDR 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CUST_EMAIL_ADDR varchar(50) NOT NULL 
+comment '고객이메일주소'
+AFTER `FRNR_CUST_CELL_NO`;
+#소스: ELLTMBDEV,MB_EC_CUST,MBR_LOGIN_ID,varchar(100),utf8_general_ci,회원로그인아이디,None,NO,
+#타겟: ELLTPRDEV,MB_EC_CUST_OUT,MBR_LOGIN_ID,varchar(100),utf8_general_ci,회원로그인아이디,None,YES,
+ALTER TABLE ELLTPRDEV.MB_EC_CUST_OUT CHANGE COLUMN `MBR_LOGIN_ID` 
+`MBR_LOGIN_ID` varchar(100) NOT NULL 
+comment '회원로그인아이디';
+#MB_EC_CUST:MBR_LOGIN_PWD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MBR_LOGIN_PWD varchar(200) NOT NULL 
+comment '회원로그인비밀번호'
+AFTER `MBR_LOGIN_ID`;
+#MB_EC_CUST:BFO_EC_CUST_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN BFO_EC_CUST_NO varchar(15)  NULL 
+comment '이전EC고객번호'
+AFTER `MBR_LOGIN_PWD`;
+#MB_EC_CUST:INTRST_CUST_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN INTRST_CUST_YN varchar(1)  NULL 
+comment '관심고객여부'
+AFTER `BFO_EC_CUST_NO`;
+#MB_EC_CUST:INDV_CORP_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN INDV_CORP_DVS_CD varchar(20)  NULL 
+comment '개인법인구분코드'
+AFTER `MBR_DVS_CD`;
+#MB_EC_CUST:MBR_STAT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MBR_STAT_CD varchar(20)  NULL 
+comment '회원상태코드'
+AFTER `INDV_CORP_DVS_CD`;
+#MB_EC_CUST:MBR_STAT_CD_CHNG_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MBR_STAT_CD_CHNG_DTTM datetime  NULL 
+comment '회원상태코드변경일시'
+AFTER `MBR_STAT_CD`;
+#MB_EC_CUST:LPNT_USE_PSB_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN LPNT_USE_PSB_YN varchar(1)  NULL 
+comment 'L포인트사용가능여부'
+AFTER `MBR_STAT_CD_CHNG_DTTM`;
+#MB_EC_CUST:STAFF_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN STAFF_YN varchar(1) NOT NULL 
+comment '임직원여부'
+AFTER `SEX_CD`;
+#MB_EC_CUST:STAFF_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN STAFF_NO varchar(30)  NULL 
+comment '임직원번호'
+AFTER `STAFF_YN`;
+#MB_EC_CUST:FRNR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN FRNR_YN varchar(1) NOT NULL 
+comment '외국인여부'
+AFTER `STAFF_NO`;
+#MB_EC_CUST:LMBS_CUST_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN LMBS_CUST_NO varchar(30)  NULL 
+comment '롯데멤버스고객번호'
+AFTER `FRNR_YN`;
+#MB_EC_CUST:LMBS_CUST_NO_CHNG_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN LMBS_CUST_NO_CHNG_DTTM datetime  NULL 
+comment '롯데멤버스고객번호변경일시'
+AFTER `LMBS_CUST_NO`;
+#MB_EC_CUST:RLNM_CERT_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN RLNM_CERT_YN varchar(1)  NULL 
+comment '실명인증여부'
+AFTER `LMBS_CUST_NO_CHNG_DTTM`;
+#MB_EC_CUST:LMBS_FNL_CHNG_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN LMBS_FNL_CHNG_DTTM datetime  NULL 
+comment '롯데멤버스최종변경일시'
+AFTER `RLNM_CERT_YN`;
+#MB_EC_CUST:TERMS_AGREE_ROUTE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN TERMS_AGREE_ROUTE_CD varchar(20)  NULL 
+comment '약관동의경로코드'
+AFTER `LMBS_FNL_CHNG_DTTM`;
+#MB_EC_CUST:MBR_GRADE_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MBR_GRADE_DVS_CD varchar(20)  NULL 
+comment '회원등급구분코드'
+AFTER `TERMS_AGREE_ROUTE_CD`;
+#MB_EC_CUST:NATLT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN NATLT_CD varchar(20)  NULL 
+comment '국적코드'
+AFTER `MBR_GRADE_DVS_CD`;
+#MB_EC_CUST:MBR_JOIN_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN MBR_JOIN_DTTM datetime  NULL 
+comment '회원가입일시'
+AFTER `NATLT_CD`;
+#MB_EC_CUST:CI_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CI_NO varchar(88)  NULL 
+comment 'CI번호'
+AFTER `MODR_ID`;
+#MB_EC_CUST:DI_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN DI_NO varchar(64)  NULL 
+comment 'DI번호'
+AFTER `CI_NO`;
+#MB_EC_CUST:LPNT_SSO_CUST_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN LPNT_SSO_CUST_NO varchar(22)  NULL 
+comment 'LPOINT통합인증고객번호'
+AFTER `DI_NO`;
+#MB_EC_CUST:LMBS_JOIN_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN LMBS_JOIN_DVS_CD varchar(20)  NULL 
+comment '롯데멤버스가입구분코드'
+AFTER `LPNT_SSO_CUST_NO`;
+#MB_EC_CUST:BIZPSN_RGST_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN BIZPSN_RGST_NO varchar(12)  NULL 
+comment '사업자등록번호'
+AFTER `LMBS_JOIN_DVS_CD`;
+#MB_EC_CUST:CORP_MSTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CORP_MSTR_NM varchar(100)  NULL 
+comment '법인대표자명'
+AFTER `BIZPSN_RGST_NO`;
+#MB_EC_CUST:CORP_RSPSBLTR_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CORP_RSPSBLTR_NM varchar(100)  NULL 
+comment '법인담당자명'
+AFTER `CORP_MSTR_NM`;
+#MB_EC_CUST:CORP_RSPSBLT_DEPT_NM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CORP_RSPSBLT_DEPT_NM varchar(100)  NULL 
+comment '법인담당부서명'
+AFTER `CORP_RSPSBLTR_NM`;
+#MB_EC_CUST:CORP_FAX_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN CORP_FAX_NO varchar(20)  NULL 
+comment '법인팩스번호'
+AFTER `CORP_RSPSBLT_DEPT_NM`;
+#MB_EC_CUST:PWD_INITZ_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN PWD_INITZ_YN varchar(1)  NULL 
+comment '비밀번호초기화여부'
+AFTER `CORP_FAX_NO`;
+#MB_EC_CUST:PWD_FNL_CHNG_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN PWD_FNL_CHNG_DTTM datetime  NULL 
+comment '비밀번호최종변경일시'
+AFTER `PWD_INITZ_YN`;
+#MB_EC_CUST:ORD_RECV_METHD_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN ORD_RECV_METHD_CD varchar(20)  NULL 
+comment '주문수신방법코드'
+AFTER `PWD_FNL_CHNG_DTTM`;
+#MB_EC_CUST:ORD_RECV_SETUP_DTTM 컬럼 타겟에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST ADD COLUMN ORD_RECV_SETUP_DTTM datetime  NULL 
+comment '주문수신설정일시'
+AFTER `ORD_RECV_METHD_CD`;
+#MB_EC_CUST_OUT:MBR_NM 컬럼 소스에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST_OUT drop column `MBR_NM`;
+#MB_EC_CUST_OUT:MBR_GRADE_CD 컬럼 소스에 없음
+ALTER TABLE ELLTPRDEV.MB_EC_CUST_OUT drop column `MBR_GRADE_CD`;
+
+############ elltmbdev.mb_mbr_grd -> elltprdev.mb_mbr_grd_out##############
+
+############ elltomdev.om_claim_dtl_hst -> elltombqdev.om_claim_dtl_hst_out##############
+
+############ elltomdev.om_claim_dtl -> elltombqdev.om_claim_dtl_out##############
+
+############ elltomdev.om_claim_dtl -> elltsedev.om_claim_dtl_out##############
+#OM_CLAIM_DTL_OUT:ADJU_CRT_DT 컬럼 소스에 없음
+ALTER TABLE ELLTSEDEV.OM_CLAIM_DTL_OUT drop column `ADJU_CRT_DT`;
+
+############ elltomdev.om_claim -> elltombqdev.om_claim_out##############
+
+############ elltomdev.om_claim_stat_hst -> elltombqdev.om_claim_stat_hst_out##############
+
+############ elltomdev.om_ord_dtl_hst -> elltombqdev.om_ord_dtl_hst_out##############
+
+############ elltomdev.om_ord_dtl -> elltetldev.om_ord_dtl_out##############
+#소스: ELLTOMDEV,OM_ORD_DTL,EXTRNL_IF_NO,int(11),None,외부인터페이스번호,None,NO,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,EXTRNL_IF_NO,int(11),None,외부인터페이스번호,None,YES,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `EXTRNL_IF_NO` 
+`EXTRNL_IF_NO` int(11) NOT NULL 
+comment '외부인터페이스번호';
+#OM_ORD_DTL:MBR_JOIN_DVS_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN MBR_JOIN_DVS_CD varchar(20)  NULL 
+comment '회원가입구분코드'
+AFTER `EC_CUST_NO`;
+#OM_ORD_DTL:MBR_GRADE_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN MBR_GRADE_CD varchar(20)  NULL 
+comment '회원등급코드'
+AFTER `MBR_JOIN_DVS_CD`;
+#소스: ELLTOMDEV,OM_ORD_DTL,ORD_DLVPLC_GROUP_NO,int(11),None,주문배송지그룹번호,None,NO,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,ORD_DLVPLC_GROUP_NO,int(11),None,주문배송지그룹번호,None,YES,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `ORD_DLVPLC_GROUP_NO` 
+`ORD_DLVPLC_GROUP_NO` int(11) NOT NULL 
+comment '주문배송지그룹번호';
+#소스: ELLTOMDEV,OM_ORD_DTL,ORD_EXP_GROUP_NO,int(4),None,주문비용그룹번호,None,NO,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,ORD_EXP_GROUP_NO,int(4),None,주문비용그룹번호,None,YES,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `ORD_EXP_GROUP_NO` 
+`ORD_EXP_GROUP_NO` int(4) NOT NULL 
+comment '주문비용그룹번호';
+#소스: ELLTOMDEV,OM_ORD_DTL,ORD_ALTMNT_GROUP_NO,smallint(6),None,주문배분그룹번호,None,NO,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,ORD_ALTMNT_GROUP_NO,smallint(6),None,주문배분그룹번호,None,YES,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `ORD_ALTMNT_GROUP_NO` 
+`ORD_ALTMNT_GROUP_NO` smallint(6) NOT NULL 
+comment '주문배분그룹번호';
+#소스: ELLTOMDEV,OM_ORD_DTL,SLPRC,int(10),None,판매가,None,NO,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,SLPRC,int(11),None,판매가,None,NO,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `SLPRC` 
+`SLPRC` int(10) NOT NULL 
+comment '판매가';
+#소스: ELLTOMDEV,OM_ORD_DTL,BRND_NO,int(7),None,브랜드번호,None,YES,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,BRND_NO,int(10),None,브랜드번호,None,YES,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `BRND_NO` 
+`BRND_NO` int(7)  NULL 
+comment '브랜드번호';
+#OM_ORD_DTL:SALES_RCGNT_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN SALES_RCGNT_CD varchar(20)  NULL 
+comment '매출인식코드'
+AFTER `TDF_DVS_CD`;
+#OM_ORD_DTL:EXCHG_RTN_PSB_CD 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN EXCHG_RTN_PSB_CD varchar(20)  NULL 
+comment '교환반품가능코드'
+AFTER `PUR_SHAPE_CD`;
+#OM_ORD_DTL:OVS_DRECT_PUR_YN 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN OVS_DRECT_PUR_YN varchar(1)  NULL 
+comment '해외직구여부'
+AFTER `EXCHG_RTN_PSB_CD`;
+#OM_ORD_DTL:MALL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN MALL_NO int(4)  NULL 
+comment '몰번호'
+AFTER `SITE_NM`;
+#OM_ORD_DTL:CART_CHNL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN CART_CHNL_NO varchar(6)  NULL 
+comment '장바구니채널번호'
+AFTER `DTL_CHNL_NM`;
+#OM_ORD_DTL:CART_DTL_CHNL_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN CART_DTL_CHNL_NO varchar(7)  NULL 
+comment '장바구니상세채널번호'
+AFTER `CART_CHNL_NO`;
+#OM_ORD_DTL:INDV_CSTM_PCLRT_NO 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN INDV_CSTM_PCLRT_NO varchar(20)  NULL 
+comment '개인통관고유번호'
+AFTER `CUST_CELL_SPRTLY_NO`;
+#OM_ORD_DTL:DLV_BGT_DT 컬럼 타겟에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL ADD COLUMN DLV_BGT_DT varchar(8)  NULL 
+comment '배송예정일자'
+AFTER `SND_WT_DTTM`;
+#소스: ELLTOMDEV,OM_ORD_DTL,STRPIC_LOC_CD,varchar(20),utf8_general_ci,스마트위치코드,None,YES,
+#타겟: ELLTETLDEV,OM_ORD_DTL_OUT,STRPIC_LOC_CD,varchar(20),utf8_general_ci,스마트픽위치코드,None,YES,
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT CHANGE COLUMN `STRPIC_LOC_CD` 
+`STRPIC_LOC_CD` varchar(20)  NULL 
+comment '스마트위치코드';
+#OM_ORD_DTL_OUT:EC_CUST_DVS_CD 컬럼 소스에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT drop column `EC_CUST_DVS_CD`;
+#OM_ORD_DTL_OUT:ADD_TAX 컬럼 소스에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT drop column `ADD_TAX`;
+#OM_ORD_DTL_OUT:ADJU_CRT_DT 컬럼 소스에 없음
+ALTER TABLE ELLTETLDEV.OM_ORD_DTL_OUT drop column `ADJU_CRT_DT`;
+
+############ elltomdev.om_ord_dtl -> elltombqdev.om_ord_dtl_out##############
+
+############ elltomdev.om_ord_dtl -> elltsedev.om_ord_dtl_out##############
+#소스: ELLTOMDEV,OM_ORD_DTL,STRPIC_LOC_CD,varchar(20),utf8_general_ci,스마트위치코드,None,YES,
+#타겟: ELLTSEDEV,OM_ORD_DTL_OUT,STRPIC_LOC_CD,varchar(20),utf8_general_ci,스마트픽위치코드,None,YES,
+ALTER TABLE ELLTSEDEV.OM_ORD_DTL_OUT CHANGE COLUMN `STRPIC_LOC_CD` 
+`STRPIC_LOC_CD` varchar(20)  NULL 
+comment '스마트위치코드';
+#OM_ORD_DTL_OUT:ADJU_CRT_DT 컬럼 소스에 없음
+ALTER TABLE ELLTSEDEV.OM_ORD_DTL_OUT drop column `ADJU_CRT_DT`;
+
+############ elltomdev.om_ord_exp_goods -> elltombqdev.om_ord_exp_goods_out##############
+
+############ elltomdev.om_ord_exp_goods -> elltsedev.om_ord_exp_goods_out##############
+
+############ elltomdev.om_ord_exp -> elltombqdev.om_ord_exp_out##############
+
+############ elltomdev.om_ord_exp -> elltsedev.om_ord_exp_out##############
+#소스: ELLTOMDEV,OM_ORD_EXP,CMPN_NO,varchar(8),utf8_general_ci,켐페인번호,None,YES,
+#타겟: ELLTSEDEV,OM_ORD_EXP_OUT,CMPN_NO,varchar(8),utf8_general_ci,캠페인번호,None,YES,
+ALTER TABLE ELLTSEDEV.OM_ORD_EXP_OUT CHANGE COLUMN `CMPN_NO` 
+`CMPN_NO` varchar(8)  NULL 
+comment '켐페인번호';
+#OM_ORD_EXP_OUT:ADJU_CRT_DT 컬럼 소스에 없음
+ALTER TABLE ELLTSEDEV.OM_ORD_EXP_OUT drop column `ADJU_CRT_DT`;
+
+############ elltomdev.om_ord_fvr -> elltombqdev.om_ord_fvr_out##############
+
+############ elltomdev.om_ord_fvr -> elltsedev.om_ord_fvr_out##############
+#OM_ORD_FVR_OUT:ADJU_CRT_DT 컬럼 소스에 없음
+ALTER TABLE ELLTSEDEV.OM_ORD_FVR_OUT drop column `ADJU_CRT_DT`;
+
+############ elltomdev.om_ord -> elltombqdev.om_ord_out##############
+
+############ elltomdev.om_ord_stat_hst -> elltombqdev.om_ord_stat_hst_out##############
+
+############ elltprdev.pr_cmpn_dc_goods_smry -> elltdpdev.pr_cmpn_dc_goods_smry_out##############
+
+############ elltprdev.pr_cmpn_dc_goods_smry -> elltgddev.pr_cmpn_dc_goods_smry_out##############
+
+############ elltprdev.pr_dc_xclud_goods -> elltdpdev.pr_dc_xclud_goods_out##############
+
+############ elltprdev.pr_dc_xclud_goods -> elltgddev.pr_dc_xclud_goods_out##############
+
+############ elltpydev.py_keep_mny_dtl -> elltsedev.py_keep_mny_dtl_out##############
+
+############ elltpydev.py_mbsh_point_if -> elltsedev.py_mbsh_point_if_out##############
+#소스: ELLTPYDEV,PY_MBSH_POINT_IF,ORD_NO,varchar(30),utf8_general_ci,주문번호,None,YES,
+#타겟: ELLTSEDEV,PY_MBSH_POINT_IF_OUT,ORD_NO,varchar(30),utf8_general_ci,주문번호,None,NO,
+ALTER TABLE ELLTSEDEV.PY_MBSH_POINT_IF_OUT CHANGE COLUMN `ORD_NO` 
+`ORD_NO` varchar(30)  NULL 
+comment '주문번호';
+#소스: ELLTPYDEV,PY_MBSH_POINT_IF,PYF_NO,int(11),None,결제번호,None,YES,
+#타겟: ELLTSEDEV,PY_MBSH_POINT_IF_OUT,PYF_NO,int(11),None,결제번호,None,NO,
+ALTER TABLE ELLTSEDEV.PY_MBSH_POINT_IF_OUT CHANGE COLUMN `PYF_NO` 
+`PYF_NO` int(11)  NULL 
+comment '결제번호';
+#소스: ELLTPYDEV,PY_MBSH_POINT_IF,ALYCO_APRV_NO,varchar(19),utf8_general_ci,제휴사승인번호,None,YES,
+#타겟: ELLTSEDEV,PY_MBSH_POINT_IF_OUT,ALYCO_APRV_NO,varchar(12),utf8_general_ci,제휴사승인번호,None,YES,
+ALTER TABLE ELLTSEDEV.PY_MBSH_POINT_IF_OUT CHANGE COLUMN `ALYCO_APRV_NO` 
+`ALYCO_APRV_NO` varchar(19)  NULL 
+comment '제휴사승인번호';
+
+############ elltpydev.py_pyf -> elltombqdev.py_pyf_out##############
+
+############ elltpydev.py_pyf -> elltsedev.py_pyf_out##############
+#PY_PYF_OUT:ADJU_CRT_DT 컬럼 소스에 없음
+ALTER TABLE ELLTSEDEV.PY_PYF_OUT drop column `ADJU_CRT_DT`;
+
+############ ltcmstdev.st_csco_cd -> elltombqdev.st_csco_cd_out##############
+
+############ ltcmstdev.st_csco_grp_cd -> elltombqdev.st_csco_grp_cd_out##############
+

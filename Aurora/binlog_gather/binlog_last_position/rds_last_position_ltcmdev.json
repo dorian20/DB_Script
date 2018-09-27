@@ -1,0 +1,6 @@
+{
+    "Cluster": "ltcmdev", 
+    "Binlogfile": "mysql-bin-changelog.000056", 
+    "CheckPosition": 3453821, 
+    "LastPosition": 3453852
+}

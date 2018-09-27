@@ -1,0 +1,6 @@
+{
+    "Cluster": "b2devprod", 
+    "Binlogfile": "mysql-bin-changelog.000003", 
+    "LastPosition": 2747851, 
+    "CheckPosition": 2747851
+}

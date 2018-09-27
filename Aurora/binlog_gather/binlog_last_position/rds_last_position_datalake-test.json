@@ -1,0 +1,6 @@
+{
+    "Cluster": "datalake-test", 
+    "Binlogfile": "mysql-bin-changelog.000003", 
+    "LastPosition": 753, 
+    "CheckPosition": 753
+}

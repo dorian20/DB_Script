@@ -1,0 +1,6 @@
+{
+    "Cluster": "dbmonitor-test", 
+    "Binlogfile": "mysql-bin-changelog.000062", 
+    "LastPosition": 8852702, 
+    "CheckPosition": 8852702
+}

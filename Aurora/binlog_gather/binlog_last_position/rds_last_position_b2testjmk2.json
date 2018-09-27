@@ -1,0 +1,6 @@
+{
+    "Cluster": "b2testjmk2", 
+    "Binlogfile": "mysql-bin-changelog.000024", 
+    "CheckPosition": 86367251, 
+    "LastPosition": 86367251
+}

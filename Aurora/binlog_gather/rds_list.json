@@ -1,0 +1,657 @@
+{
+    "DBClusters": [
+        {
+            "DBSubnetGroup": "ellt-dev-biz-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "elltdev.cluster-ro-cbue0iqm0djc.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-a59217ce"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:47:37.948Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "elltdev.cluster-cbue0iqm0djc.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:10:24.599Z", 
+            "ClusterCreateTime": "2017-12-19T00:52:04.772Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "YES", 
+            "DBClusterIdentifier": "elltdev", 
+            "DbClusterResourceId": "cluster-ZDBRTLFMQ2IS4DRCQCWEMCMAYY", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "elltdev"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::515303172277:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "elltdev-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:515303172277:cluster:elltdev"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "b2-tech-platform-dev.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:48:10.930Z", 
+            "PreferredBackupWindow": "18:06-18:36", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "wed:20:06-wed:20:36", 
+            "Engine": "aurora", 
+            "Endpoint": "b2-tech-platform-dev.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T18:16:21.244Z", 
+            "ClusterCreateTime": "2018-01-25T06:03:14.608Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "b2-tech-platform-dev", 
+            "DbClusterResourceId": "cluster-6JFWGCLLXJ5XAM3GK5MAPPAUCI", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 0, 
+                    "DBInstanceIdentifier": "b2-tech-platform-dev"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [], 
+            "DBClusterParameterGroup": "b2-tech-platform-dev-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:b2-tech-platform-dev"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "b2devprod.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:45:37.730Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "b2devprod.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:13:26.523Z", 
+            "ClusterCreateTime": "2017-12-19T01:02:58.198Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "b2devprod", 
+            "DbClusterResourceId": "cluster-HCS4NA7X4X5SSTC22IOR52NFIU", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "b2devprod"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "b2devprod-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:b2devprod"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "b2techdev.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:48:15.739Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "b2techdev.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:07:22.792Z", 
+            "ClusterCreateTime": "2018-01-26T02:26:58.226Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "b2techdev", 
+            "DbClusterResourceId": "cluster-FZ23YQ5DQPEAHFRIA33BRL4SXI", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "b2techdev"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "b2techdev-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:b2techdev"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "b2testjmk3-cluster.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }, 
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-b9cc74d2"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:47:46.938Z", 
+            "PreferredBackupWindow": "20:08-20:38", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "fri:13:17-fri:13:47", 
+            "Engine": "aurora-mysql", 
+            "Endpoint": "b2testjmk3-cluster.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T20:19:17.817Z", 
+            "ClusterCreateTime": "2018-02-08T04:16:20.934Z", 
+            "EngineVersion": "5.7.12", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "b2testjmk3-cluster", 
+            "DbClusterResourceId": "cluster-UKM3PFOCVBO7GKWGPXPVWS3E4M", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "b2testjmk3"
+                }
+            ], 
+            "Port": 3306, 
+            "KmsKeyId": "arn:aws:kms:ap-northeast-2:087518667058:key/130b1049-7919-46f0-825d-b3774e56f839", 
+            "StorageEncrypted": true, 
+            "AssociatedRoles": [], 
+            "DBClusterParameterGroup": "default.aurora-mysql5.7", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:b2testjmk3-cluster"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "datalake-test.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:45:50.592Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "datalake-test.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:14:27.075Z", 
+            "ClusterCreateTime": "2017-12-19T01:03:39.905Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "datalake-test", 
+            "DbClusterResourceId": "cluster-F36GYU2X7BPBUJ7FQLD6PZBZZY", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "datalake-test"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "datalake-test-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:datalake-test"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "dbmonitor-test.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:48:12.906Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "dbmonitor-test.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:04:20.910Z", 
+            "ClusterCreateTime": "2017-12-19T01:04:06.491Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "dbmonitor-test", 
+            "DbClusterResourceId": "cluster-XSCB54VMZ655DAKFFAIKWRUXXA", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "dbmonitor-test"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "dbmonitor-test-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:dbmonitor-test"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "humusondev.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:48:01.860Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora-mysql", 
+            "Endpoint": "humusondev.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:10:24.325Z", 
+            "ClusterCreateTime": "2018-02-20T08:22:03.769Z", 
+            "EngineVersion": "5.7.12", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "humusondev", 
+            "DbClusterResourceId": "cluster-5UACA5VQENYKON4PEKOL5XW4UM", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "humusondev"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "humusondev-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:humusondev"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "jmkltcm-cluster.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:47:44.498Z", 
+            "PreferredBackupWindow": "03:00-04:00", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora-mysql", 
+            "Endpoint": "jmkltcm-cluster.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T03:04:16.879Z", 
+            "ClusterCreateTime": "2018-03-02T02:19:35.315Z", 
+            "EngineVersion": "5.7.12", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "jmkltcm-cluster", 
+            "DbClusterResourceId": "cluster-6LY7KPXZA46RO6FIUKKBTK4JQM", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "jmkltcm"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [], 
+            "DBClusterParameterGroup": "jmkltcm", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:jmkltcm-cluster"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "ltcmdev.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:48:11.599Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "ltcmdev.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:11:25.033Z", 
+            "ClusterCreateTime": "2017-12-19T01:01:15.700Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "YES", 
+            "DBClusterIdentifier": "ltcmdev", 
+            "DbClusterResourceId": "cluster-WVM5Y3UAYID6CTVD6ETNUWIVAA", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "ltcmdev"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "ltcmdev-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:ltcmdev"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "ltmsgdev.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:45:46.882Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "ltmsgdev.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:12:25.979Z", 
+            "ClusterCreateTime": "2017-12-19T01:02:10.734Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "YES", 
+            "DBClusterIdentifier": "ltmsgdev", 
+            "DbClusterResourceId": "cluster-EGVIGVNABDUPJ2OHKJKENGMCRY", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "ltmsgdev"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "ltmsgdev-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:ltmsgdev"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "pr-goods.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:45:51.129Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "pr-goods.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:05:21.371Z", 
+            "ClusterCreateTime": "2017-12-19T01:04:38.123Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "pr-goods", 
+            "DbClusterResourceId": "cluster-O5KO4MBSVIGBAIY7WY3NEGFDAY", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "pr-goods"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "pr-goods-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:pr-goods"
+        }, 
+        {
+            "DBSubnetGroup": "b2-dev-share-vpc-rds-pri-sng", 
+            "MasterUsername": "b2_dba", 
+            "ReaderEndpoint": "sonarqube.cluster-ro-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "ReadReplicaIdentifiers": [], 
+            "VpcSecurityGroups": [
+                {
+                    "Status": "active", 
+                    "VpcSecurityGroupId": "sg-8d9c19e6"
+                }
+            ], 
+            "HostedZoneId": "ZLA2NUCOLGUUR", 
+            "Status": "available", 
+            "MultiAZ": false, 
+            "LatestRestorableTime": "2018-03-07T00:47:57.534Z", 
+            "PreferredBackupWindow": "01:00-01:30", 
+            "IAMDatabaseAuthenticationEnabled": false, 
+            "AllocatedStorage": 1, 
+            "BackupRetentionPeriod": 1, 
+            "PreferredMaintenanceWindow": "mon:00:30-mon:01:00", 
+            "Engine": "aurora", 
+            "Endpoint": "sonarqube.cluster-c0xgcmsoxdvu.ap-northeast-2.rds.amazonaws.com", 
+            "EarliestRestorableTime": "2018-03-05T01:06:42.126Z", 
+            "ClusterCreateTime": "2017-12-19T01:05:18.664Z", 
+            "EngineVersion": "5.6.10a", 
+            "getbinlog": "NO", 
+            "DBClusterIdentifier": "sonarqube", 
+            "DbClusterResourceId": "cluster-P2OP5YZBDAEGRYPB56NF3YLGAI", 
+            "DBClusterMembers": [
+                {
+                    "IsClusterWriter": true, 
+                    "DBClusterParameterGroupStatus": "in-sync", 
+                    "PromotionTier": 1, 
+                    "DBInstanceIdentifier": "sonarqube"
+                }
+            ], 
+            "Port": 3306, 
+            "StorageEncrypted": false, 
+            "AssociatedRoles": [
+                {
+                    "Status": "ACTIVE", 
+                    "RoleArn": "arn:aws:iam::087518667058:role/AllowAuroraS3Role"
+                }
+            ], 
+            "DBClusterParameterGroup": "sonarqube-cluster-param", 
+            "AvailabilityZones": [
+                "ap-northeast-2a", 
+                "ap-northeast-2c"
+            ], 
+            "DBClusterArn": "arn:aws:rds:ap-northeast-2:087518667058:cluster:sonarqube"
+        }
+    ]
+}

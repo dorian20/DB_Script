@@ -1,0 +1,6 @@
+{
+    "Cluster": "sonarqube", 
+    "Binlogfile": "mysql-bin-changelog.000035", 
+    "LastPosition": 30103498, 
+    "CheckPosition": 30103498
+}
